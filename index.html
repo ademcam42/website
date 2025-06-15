@@ -1,0 +1,3758 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+
+<!-- Apple Touch Icon (iOS cihazlar için) -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<!-- Android Chrome Icon -->
+<link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+
+<!-- Web App Manifest (PWA desteği için) -->
+<link rel="manifest" href="/site.webmanifest">
+
+<!-- Microsoft Tile (Windows 8/10) -->
+<meta name="msapplication-TileColor" content="#2c1e1e">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+<meta name="theme-color" content="#2c1e1e">
+  <meta name="keywords" content="kralı yakala, kralı yakala event, metin2 kralı yakala event, kralı yakala yardımcı, kralı yakala oyunu, kralı yakala strateji,  metin2 okey eventi, metin2 okey eventi yardımcı, okey helper">
+  <meta name="robots" content="index, follow">
+  <meta name="revisit-after" content="7 days">
+  <meta name="language" content="Turkish">
+  <meta name="author" content="Karizma">
+  <link rel="canonical" href="https://www.kraliyakala.com" />
+  
+
+ <title>Metin2 Kralı Yakala Event Yardımcısı | kraliyakala.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Metin2 Kralı Yakala oyunu için profesyonel event yardımcı aracı">
+  <meta name="author" content="Karizma">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <style>
+    :root {
+      --base-size: min(2vw, 14px);
+      --card-width: min(60px, 12vw);
+      --card-height: min(40px, 8vh);
+      --cell-ratio: 0.5;
+      --button-padding: 0.4em 0.8em;
+      --cell-border: 1.5px solid #222;
+      --selection-color: #6ab34f;
+      --navbar-height: 56px;
+      --footer-height: 60px;
+    }
+    
+    body {
+      background: #2c1e1e;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      padding-top: var(--navbar-height);
+      padding-bottom: var(--footer-height);
+      box-sizing: border-box;
+      max-width: 100%;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* Navbar Stili */
+.navbar {
+  display: flex;
+  justify-content: center; /* Navbar içeriğini ortala */
+  padding: 0.2rem 0.5rem; /* Daha az padding */
+  border: 2px solid gold;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(255,215,0,0.08);
+  margin-bottom: 6px;
+}
+
+.navbar > .container {
+  display: flex;
+  justify-content: center; /* Container içeriğini ortala */
+  width: 100%;
+  max-width: 100%; /* Genişliği tam yap */
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+  margin: 0;
+}
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Logo ve metni ortala */
+  flex-grow: 1; /* Tüm alanı kapla */
+  text-align: center;
+  margin: 0 auto; /* Otomatik margin ile tam ortala */
+  color: gold !important;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding-left: 0;
+}
+.navbar-brand img {
+  height: 50px;
+  margin-right: 6px;
+  margin-left: 0;
+}
+    .nav-link {
+      color: #ddd !important;
+      transition: color 0.3s;
+    }
+    .nav-link:hover {
+      color: #6ab34f !important;
+    }
+.navbar-toggler {
+  position: absolute;
+  right: 1rem;
+}
+.navbar-collapse {
+  flex-grow: 0; /* Menüyü genişletme */
+}
+
+/* Responsive ayarlar */
+@media (max-width: 992px) {
+  .navbar > .container {
+    flex-wrap: nowrap;
+  }
+  
+  .navbar-brand {
+    flex-grow: 1;
+    justify-content: center;
+    margin-left: 40px; /* Toggle butonuna yer aç */
+  }
+}
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(106, 179, 79, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+    }
+
+    /* Footer Stili */
+    footer {
+      background-color: #1a1111;
+      color: #ddd;
+      text-align: center;
+      padding: 15px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      height: var(--footer-height);
+      border-top: 1px solid #6ab34f;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+    }
+    .copyright {
+      font-size: 14px;
+      margin-top: 5px;
+      user-select: none;
+    }
+
+    .main-container {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      padding-top: 20px;
+      padding-bottom: 90px;
+      padding-left: 0;
+      padding-right: 0;
+      flex: 1;
+      transition: transform 0.2s;
+      transform-origin: top center;
+      overflow: visible;
+      box-sizing: border-box;
+    }
+    
+    /* .main-controls için modern ve hizalı bir görünüm sağla */
+    .main-controls {
+      width: 100%;
+      max-width: 500px;
+      margin: 16px auto 8px auto;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: #181818;
+      border-radius: 14px;
+      padding: 8px 12px;
+      box-shadow: 0 2px 16px #000a;
+    }
+    .main-controls .button {
+      min-width: 38px;
+      max-width: 44px;
+      font-size: 1.25em;
+      padding: 7px 0;
+      border-radius: 8px;
+      margin: 0;
+      background: #181818;
+      color: inherit;
+      border: 2.5px solid transparent;
+      transition: background 0.18s, border-color 0.18s, color 0.18s, box-shadow 0.18s, transform 0.18s;
+      box-shadow: 0 1px 6px #0006;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    @media (max-width: 600px) {
+      .main-controls {
+        max-width: 100vw;
+        gap: 4px;
+        padding: 2px 0;
+        margin-left: 0;
+        margin-right: 0;
+      }
+      .main-controls .button {
+        min-width: 30px;
+        max-width: 36px;
+        font-size: 1em;
+        padding: 4px 0;
+      }
+    }
+    
+    .main-controls #clearBtn {
+      border-color: #e74c3c;
+      color: #e74c3c;
+    }
+    .main-controls #clearBtn:hover {
+      background: #e74c3c22;
+      color: #fff;
+      box-shadow: 0 0 12px #e74c3c55;
+    }
+    .main-controls #resetBtn {
+      border-color: #f39c12;
+      color: #f39c12;
+    }
+    .main-controls #resetBtn:hover {
+      background: #f39c1222;
+      color: #fff;
+      box-shadow: 0 0 12px #f39c1255;
+    }
+    .main-controls #zoomInBtn, .main-controls #zoomOutBtn {
+      border-color: #8e44ad;
+      color: #8e44ad;
+    }
+    .main-controls #zoomInBtn:hover, .main-controls #zoomOutBtn:hover {
+      background: #8e44ad22;
+      color: #fff;
+      box-shadow: 0 0 12px #8e44ad55;
+    }
+    .main-controls #helpBtn {
+      border-color: #27ae60;
+      color: #27ae60;
+    }
+    .main-controls #helpBtn:hover {
+      background: #27ae6022;
+      color: #fff;
+      box-shadow: 0 0 12px #27ae6055;
+    }
+    .main-controls #markNoFiveMainBtn {
+      border-color: #27ae60;
+      color: #27ae60;
+    }
+    .main-controls #markNoFiveMainBtn:hover {
+      background: #27ae6022;
+      color: #fff;
+      box-shadow: 0 0 12px #27ae6055;
+    }
+    .main-controls #previewToggleBtn {
+      border-color: #2ecc71;
+      color: #2ecc71;
+    }
+    .main-controls #previewToggleBtn:hover {
+      background: #2ecc7122;
+      color: #fff;
+      box-shadow: 0 0 12px #2ecc7155;
+    }
+    .main-controls #mainOnlineCounter {
+      margin-left: 0;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.98em;
+      background: linear-gradient(90deg, #232323 0%, #3a2c1a 100%);
+      border: 1.2px solid gold;
+      border-radius: 14px;
+      box-shadow: 0 1px 6px rgba(255,215,0,0.08);
+      padding: 2px 7px 2px 7px;
+      font-weight: 600;
+      color: #ffd700;
+      min-width: 48px;
+      max-width: 90px;
+      overflow: hidden;
+    }
+    .main-controls #mainOnlineCounter i {
+      color: #fffbe6;
+      font-size: 1.1em;
+      filter: drop-shadow(0 0 2px #ffd700);
+    }
+    .main-controls #mainOnlineCounter span {
+      color: #fff;
+      font-weight: bold;
+      text-shadow: 0 0 6px #ffd700, 0 0 2px #fff;
+    }
+    
+    .card-selection {
+      display: flex;
+      justify-content: center;
+      flex-wrap: nowrap;
+      gap: 4px;
+      margin: 0;
+      max-width: 100%;
+      width: 100%;
+      min-width: 0;
+      padding: 4px 0;
+      box-sizing: border-box;
+      overflow: visible;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 8px;
+      background-color: rgba(0,0,0,0.4);
+      box-shadow: none;
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      box-sizing: border-box;
+    }
+    
+    .card-button-box {
+      width: clamp(38px, 10vw, 70px);
+      height: clamp(28px, 7vw, 48px);
+      font-size: clamp(0.9em, 2.5vw, 1.2em);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 6px;
+      cursor: pointer;
+      position: relative;
+      color: white;
+      text-shadow: 0px 0px 3px #000000;
+      transition: transform 0.15s, border-color 0.3s;
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+      background-size: cover;
+      flex-shrink: 0;
+      opacity: 1;
+      filter: none;
+      border: 2px solid transparent;
+    }
+    .card-button-box:hover:not(.disabled-card) {
+      transform: scale(1.07);
+      border-color: var(--selection-color);
+      box-shadow: 0 0 15px var(--selection-color);
+    }
+    .card-button-box.disabled-card {
+      opacity: 0.5;
+      filter: grayscale(50%);
+      cursor: not-allowed;
+      border-color: transparent;
+      box-shadow: none;
+    }
+    
+    .card-count {
+      position: absolute;
+      top: -9px;
+      right: -9px;
+      background: rgba(0,0,0,0.8);
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: min(calc(var(--base-size) * 0.7), 12px);
+      font-weight: 700;
+      user-select: none;
+      pointer-events: none;
+    }
+    
+    .grid-container {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      display: flex;
+      justify-content: center;
+      padding-left: 0;
+      padding-right: 0;
+      margin: 0 0 20px 0;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 10px;
+      background-color: rgba(0,0,0,0.4);
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      box-sizing: border-box;
+    }
+    
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      aspect-ratio: 5/2;
+      width: 100%;
+      max-width: 500px;
+      gap: 2px;
+      border: none;
+      border-radius: 10px;
+      background-color: rgba(255,255,255,0.05);
+    }
+    
+    .cell {
+      aspect-ratio: 1/var(--cell-ratio);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative; /* Mutlak konumlu çocuklar için zorunlu */
+      background-image: url('ck-grey.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      font-size: min(calc(var(--base-size) * 1.3), 18px);
+      color: white;
+      text-shadow: 0px 0px 4px #000;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: var(--cell-border);
+      border-radius: 6px;
+      box-shadow: inset 0 0 6px rgba(0,0,0,0.8);
+      user-select: none;
+      background-color: #181818;
+    }
+    
+    .cell:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 12px var(--selection-color);
+      z-index: 5;
+    }
+    
+.selected {
+  border: 3px solid gold !important;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+  transform: scale(1.05);
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+    
+    .adjacent-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.75;
+      z-index: 1;
+      border-radius: 6px;
+    }
+    
+.adjacent-yes {
+  background:  #e74c3c;
+  background-size: cover;
+  opacity: 0.85;
+}
+    
+.adjacent-no {
+  background: #95c97d; /* 5 Yok için mevcut renk korundu */
+}
+    
+    .cell-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 5;
+      user-select: none;
+      font-size: 1.3em;
+      font-weight: bold;
+      text-shadow: 0 0 8px #000, 0 0 2px #fff;
+    }
+    
+    .king-animation {
+      animation: pulse 1s ease-in-out;
+      box-shadow: 0 0 20px gold;
+      border-color: gold !important;
+      z-index: 15;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    
+    /* Hücre üstü butonlar */
+.cell-actions {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 20;
+  display: none;
+  width: 110%;
+  align-items: center; /* Yeni eklenen - butonları ortalar */
+}
+    
+.cell-actions {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none; /* Başlangıçta gizli */
+  flex-direction: column;
+  gap: 8px;
+  z-index: 20;
+  width: 90%; /* Genişliği biraz azaltıyoruz */
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* Tıklama sorunlarını önlemek için */
+}
+
+.cell-actions button {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  font-weight: 700;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.4);
+  transition: all 0.3s ease-in-out;
+  color: white;
+  border: 2px solid transparent;
+  width: 80px; /* Sabit genişlik */
+  pointer-events: auto; /* Butonların tıklanabilir olması için */
+  text-align: center;
+}
+
+.cell-actions button:first-child {
+  background: linear-gradient(90deg, rgba(47,81,102,1) 0%, rgba(89,156,199,1) 100%);
+  border-color: #275273;
+}
+
+.cell-actions button:last-child {
+  background: #95c97d;
+  color: #123700;
+  border-color: #679f47;
+}
+    .cell-actions button:hover {
+      filter: brightness(1.08);
+      transform: scale(1.08);
+      box-shadow: 0 5px 18px rgba(0,0,0,0.6);
+    }
+    
+    /* Alt kontrol paneli */
+.bottom-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+  padding: 15px 20px;
+  box-sizing: border-box;
+  position: relative;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 10px;
+  background: rgba(0,0,0,0.4);
+}
+    
+.adjacent-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+  border-radius: 8px;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+}
+
+    /* 5 Var ve 5 Yok butonlarının renklendirilmesi */
+    .adjacent-buttons .button {
+      background: transparent;
+      border: 3px solid transparent;
+      border-radius: 8px;
+      font-weight: 700;
+      color: white;
+      font-size: 18px;
+      padding: 12px 20px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 9px rgba(255, 255, 255, 0.15);
+      cursor: pointer;
+      user-select: none;
+      flex: 1;
+      max-width: 150px;
+      min-width: 110px;
+      text-align: center;
+    }
+    .adjacent-buttons .button#hasFiveBtn {
+      background: linear-gradient(90deg, rgba(47,81,102,1) 0%, rgba(89,156,199,1) 100%);
+      border-color: #275273;
+      box-shadow: 0 0 12px rgba(89,156,199,0.8);
+    }
+    .adjacent-buttons .button#noFiveBtn {
+      background: #95c97d;
+      color: #123700;
+      border-color: #679f47;
+      box-shadow: 0 0 12px rgba(149,201,125,0.85);
+    }
+    .adjacent-buttons .button:hover:not(:disabled) {
+      filter: brightness(1.1);
+      transform: scale(1.05);
+      box-shadow: 0 0 18px rgba(255,255,255,0.6);
+    }
+    .adjacent-buttons .button:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      border-color: transparent !important;
+      box-shadow: none !important;
+    }
+    
+    /* Hızlı seçim aktif değilken alt kontrollerin belirginliği için kenarlık eklenebilir */
+.bottom-controls.active-quick {
+  border: 2px solid var(--selection-color);
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(106, 179, 79, 0.6);
+  background-color: rgba(0,0,0,0.25);
+  margin-top: 0;
+  margin-bottom: 0;
+  border: none;
+}
+
+.settings-row {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+}
+
+/* Hızlı seçim butonu düzenlemesi */
+.settings-btn {
+  padding: 6px 14px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 2px solid #ffd700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #fff;
+  background: #181818;
+  font-weight: 700;
+  user-select: none;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s, border-color 0.3s;
+  width: auto;
+  margin: 0 auto;
+  box-shadow: 0 1px 4px rgba(106,179,79,0.08);
+}
+.settings-btn[aria-pressed="true"], .settings-btn.active {
+  background: #6ab34f;
+  color: #fff;
+  border-color: #ffd700;
+  box-shadow: 0 2px 10px rgba(106,179,79,0.18);
+}
+.settings-btn[aria-pressed="true"]:hover, .settings-btn.active:hover {
+  background: #4e8c36;
+  color: #fff;
+  border-color: #ffd700;
+}
+.settings-btn:not([aria-pressed="true"]):hover {
+  background: #232323;
+  color: #fff;
+  border-color: #ffd700;
+  box-shadow: 0 2px 8px rgba(106,179,79,0.10);
+}
+    .status-indicator {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 6px;
+      border: 2px solid #222;
+      box-sizing: border-box;
+    }
+    .status-on {
+      background-color: #6ab34f;
+      border-color: #222;
+    }
+    .status-off {
+      background-color: #e74c3c;
+      border-color: #222;
+    }
+
+    /* Şık Modal Stili */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .modal-content {
+      background: #2c1e1e;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 500px;
+      padding: 25px;
+      box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+      transform: translateY(-50px);
+      transition: transform 0.3s ease;
+      position: relative;
+      border: 1px solid #6ab34f;
+    }
+    .modal-overlay.active .modal-content {
+      transform: translateY(0);
+    }
+    .modal-header {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .modal-title {
+      color: #6ab34f;
+      font-size: 24px;
+      font-weight: 700;
+      margin: 0;
+    }
+    .modal-body {
+      margin-bottom: 20px;
+    }
+    .modal-body ol {
+      padding-left: 20px;
+    }
+    .modal-body li {
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+    .modal-footer {
+      text-align: center;
+    }
+    .close-modal {
+      background: #6ab34f;
+      color: #222;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: all 0.3s;
+    }
+    .close-modal:hover {
+      background: #5aa347;
+      transform: translateY(-2px);
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 600px) {
+      :root {
+        --card-width: 50px;
+        --card-height: 35px;
+        --button-padding: 0.3em 0.6em;
+        --selection-color: #5aa347;
+      }
+      
+      .grid {
+        max-width: 95vw;
+      }
+      
+      .button {
+        min-width: 50px;
+        font-size: calc(var(--base-size) * 0.9);
+      }
+      
+      .cell-actions button {
+        font-size: 14px;
+        padding: 8px 12px;
+      }
+      
+      .selected {
+        box-shadow: 0 0 12px rgb(255, 252, 253);
+      }
+      
+      .settings-btn {
+        padding: 6px 10px;
+        font-size: 14px;
+      }
+
+  .bottom-controls {
+    padding: 12px 15px;
+  }
+
+  .adjacent-buttons {
+    gap: 10px;
+  }
+
+      .status-indicator {
+        width: 12px;
+        height: 12px;
+        margin-right: 5px;
+      }
+      .card-selection {
+        max-width: 100vw;
+        gap: 2px;
+        padding: 4px 0;
+        margin: 0;
+      }
+      .card-button-box {
+        width: clamp(44px, 16vw, 60px);
+        height: clamp(32px, 10vw, 44px);
+        min-width: 44px;
+        min-height: 32px;
+        font-size: clamp(1em, 3vw, 1.2em);
+        padding: 0;
+      }
+    }
+    
+    @media (max-width: 400px) {
+      :root {
+        --card-width: 42px;
+        --card-height: 28px;
+        --base-size: 12px;
+      }
+      
+      .card-count {
+        width: 14px;
+        height: 14px;
+        top: -6px;
+        right: -6px;
+        font-size: 8px;
+      }
+      
+      .button {
+        min-width: 45px;
+        font-size: 11px;
+      }
+      
+      .settings-btn {
+        padding: 4px 8px;
+        font-size: 13px;
+      }
+
+  .bottom-controls {
+    padding: 10px 12px;
+  }
+
+  .adjacent-buttons .button {
+    min-width: 120px; /* Küçük ekranlarda buton genişliği */
+  }
+
+      .cell-actions button {
+        font-size: 15px;
+        padding: 10px 14px;
+      }
+
+.online-counter {
+  margin-top: 10px !important;
+  margin-bottom: 8px !important;
+  font-size: 15px !important;
+  color: #e6c200 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 7px !important;
+  background: linear-gradient(90deg, #232323 0%, #3a2c1a 100%) !important;
+  border: 1.5px solid #e6c200 !important;
+  border-radius: 18px !important;
+  box-shadow: 0 1px 4px rgba(230,194,0,0.08) !important;
+  padding: 6px 18px 6px 14px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px !important;
+  width: fit-content !important;
+}
+
+.online-counter i {
+  font-size: 18px !important;
+  color: #fffbe6 !important;
+  filter: drop-shadow(0 0 1px #e6c200) !important;
+}
+
+#onlineCount {
+  color: #fff !important;
+  font-weight: bold !important;
+  text-shadow: 0 0 2px #e6c200, 0 0 1px #fff !important;
+}
+
+.flag-indicator {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  background: rgba(0, 0, 0, 0.9);
+  color: #ff2222;
+  font-size: 1em;
+  border-radius: 3px;
+  padding: 0 2px;
+  z-index: 2;
+  pointer-events: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  min-width: 0;
+  line-height: 1;
+  border: 1px solid #444;
+}
+@media (max-width: 600px) {
+  .flag-indicator {
+    font-size: 1em;
+    padding: 0 1px;
+  }
+}
+
+.flag-hint {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255, 215, 0, 0.08);
+  border: 1.5px solid gold;
+  border-radius: 8px;
+  padding: 3px 10px 3px 7px;
+  font-size: 0.98em;
+  font-weight: 500;
+  color: #ffd700;
+  margin-right: 8px;
+  box-shadow: 0 1px 6px rgba(255,215,0,0.07);
+  user-select: none;
+  white-space: nowrap;
+  min-width: 0;
+}
+.flag-hint .flag-icon {
+  font-size: 1.2em;
+  margin-right: 2px;
+  filter: drop-shadow(0 0 2px #ffd700);
+}
+.flag-hint .flag-text {
+  color: #ffd700;
+  font-size: 0.98em;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+}
+@media (max-width: 600px) {
+  .main-controls .flag-hint {
+    font-size: 0.92em;
+    padding: 2px 6px 2px 5px;
+    margin-right: 4px;
+  }
+  .main-controls .flag-hint .flag-icon {
+    font-size: 1em;
+  }
+  .main-controls .flag-hint .flag-text {
+    font-size: 0.92em;
+  }
+}
+
+.modern-kart {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(30, 30, 30, 0.95);
+  border: 1px solid #555;
+  border-radius: 12px;
+  padding: 12px 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  z-index: 1000;
+  font-size: 14px;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .modern-kart {
+    display: block;
+    content: "🚩 5'e komşu olan hücrelere eklenir.";
+  }
+}
+  border-radius: 12px;
+  border: 1px solid #555;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  backdrop-filter: blur(5px);
+}
+
+.floating-hint {
+  background: #2c1e1e;
+  border: 2px solid gold;
+  color: gold;
+  border-radius: 10px;
+  min-width: 240px;
+  max-width: 100%;
+  padding: 12px 18px;
+  font-weight: 600;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  position: relative;
+  overflow: hidden;
+  animation: float 3s ease-in-out infinite;
+}
+
+.floating-hint::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+  transform: rotate(30deg);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.modern-hint-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.modern-hint-icon {
+  font-size: 1.4em;
+  filter: drop-shadow(0 0 2px rgba(0,0,0,0.3));
+}
+
+.modern-hint-text {
+  font-size: 1em;
+  font-weight: 500;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .floating-hint {
+    padding: 10px 14px;
+    min-width: auto;
+    font-size: 0.95em;
+  }
+  .modern-hint-icon {
+    font-size: 1.2em;
+  }
+  .modern-hint-text {
+    font-size: 0.95em;
+  }
+}
+
+/* adjacent-buttons .button hover renkleri hızlı seçim moduna göre değişsin */
+.bottom-controls:not(.active-quick) .adjacent-buttons .button:hover {
+  background: #6ab34f !important;
+  color: #fff !important;
+  border-color: gold !important;
+  box-shadow: 0 0 10px #6ab34f55;
+}
+
+.bottom-controls.active-quick .adjacent-buttons .button:hover {
+  background: #e74c3c !important;
+  color: #fff !important;
+  border-color: #111 !important;
+  box-shadow: 0 0 10px #e74c3c55;
+}
+
+/* Stil güncellemesi */
+/* Ana kontrol düğmeleri için genel stil */
+.main-controls .button {
+  border: 2px solid transparent;
+  border-radius: 8px;
+  margin: 0 2px;
+  background: #232323;
+  color: #fff;
+  transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.10);
+  min-width: 36px;
+  min-height: 36px;
+  font-size: 1.25em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main-controls #clearBtn {
+  background: #2c1e1e;
+  border-color: #e74c3c;
+  color: #e74c3c;
+}
+.main-controls #clearBtn:hover {
+  background: #e74c3c;
+  color: #fff;
+  box-shadow: 0 0 8px #e74c3c55;
+}
+/* Undo butonu için özel stil */
+.main-controls #undoBtn, .main-controls #redoBtn {
+  background: #232323;
+  border: 2px solid #3498db;
+  color: #3498db;
+  transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.10);
+}
+.main-controls #undoBtn:hover, .main-controls #redoBtn:hover {
+  background: #3498db;
+  color: #fff;
+  box-shadow: 0 0 8px #3498db55;
+}
+/* Redo butonu için özel stil */
+
+.main-controls #resetBtn {
+  background: #2c211e;
+  border-color: #f39c12;
+  color: #f39c12;
+}
+.main-controls #resetBtn:hover {
+  background: #f39c12;
+  color: #fff;
+  box-shadow: 0 0 8px #f39c1255;
+}
+.main-controls #zoomOutBtn, .main-controls #zoomInBtn {
+  background: #241e2c;
+  border-color: #9b59b6;
+  color: #9b59b6;
+}
+.main-controls #zoomOutBtn:hover, .main-controls #zoomInBtn:hover {
+  background: #9b59b6;
+  color: #fff;
+  box-shadow: 0 0 8px #9b59b655;
+}
+.main-controls #helpBtn {
+  background: #1e2c21;
+  border-color: #27ae60;
+  color: #27ae60;
+}
+.main-controls #helpBtn:hover {
+  background: #27ae60;
+  color: #fff;
+  box-shadow: 0 0 8px #27ae6055;
+}
+.cell.no-five-marked {
+  background-image: none !important;
+  background-color: #95c97d !important;
+}
+
+/* Modern tooltip kartı için stil ekle */
+#markNoFiveTooltip {
+  display: none;
+  position: absolute;
+  left: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 999;
+  background: #232323;
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  padding: 12px 18px;
+  font-size: 15px;
+  font-weight: 500;
+  min-width: 220px;
+  max-width: 300px;
+  white-space: normal;
+  pointer-events: none;
+  border: 1.5px solid #95c97d;
+}
+#markNoFiveMainBtn:hover + #markNoFiveTooltip {
+  display: block;
+}
+.main-controls {
+  position: relative;
+}
+
+/* Tooltip'i butonun içine ekle ve sadece hover'da gösterilecek şekilde CSS'i güncelle */
+#markNoFiveMainBtn {
+  position: relative;
+}
+#markNoFiveMainBtn .custom-tooltip {
+  display: none;
+  position: absolute;
+  left: 110%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  background: #222;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  padding: 16px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  min-width: 260px;
+  max-width: 320px;
+  white-space: normal;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+#markNoFiveMainBtn:hover .custom-tooltip {
+  display: block;
+  opacity: 1;
+}
+  </style>
+  <!-- Tippy.js CSS ve JS CDN ile ekle -->
+  <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css" />
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
+  <script src="https://unpkg.com/tippy.js@6"></script>
+  <style>
+    .support-banner {
+      width: 100%;
+      max-width: 500px;
+      margin: 18px auto 0 auto;
+      background: linear-gradient(90deg, #232323 0%, #3a2c1a 100%);
+      color: #ffd700;
+      font-weight: 600;
+      font-size: 1.13em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 18px 18px 16px 18px;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px 0 rgba(255,215,0,0.13), 0 1.5px 8px 0 #0008;
+      z-index: 2000;
+      position: relative;
+      letter-spacing: 0.5px;
+      user-select: none;
+      transition: transform 0.18s cubic-bezier(.4,1.4,.6,1.1), box-shadow 0.18s;
+    }
+    .support-banner .support-title {
+      font-size: 1.18em;
+      font-weight: 700;
+      color: #ffd700;
+      margin-bottom: 2px;
+      text-align: center;
+      letter-spacing: 0.2px;
+      text-shadow: 0 1px 8px #000a, 0 0 2px #fffbe6;
+    }
+    .support-banner .support-buttons {
+      display: flex;
+      flex-direction: row;
+      gap: 18px;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+    .support-banner .support-link {
+      color: #ffd700;
+      text-decoration: none;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 1.18em;
+      transition: color 0.2s, text-shadow 0.2s, background 0.2s, box-shadow 0.2s;
+      padding: 10px 18px;
+      border-radius: 12px;
+      background: #232323;
+      box-shadow: 0 2px 8px #0006;
+      border: 2px solid #ffd70044;
+    }
+    .support-banner .support-link:hover {
+       color: #fff;
+       background: #ffd70033;
+       text-shadow: 0 0 8px #ffd700, 0 0 2px #fff;
+       box-shadow: 0 4px 16px #ffd70055;
+    }
+    .support-banner .fab {
+      font-size: 1.55em;
+      margin-right: 2px;
+      vertical-align: middle;
+      transition: color 0.2s, text-shadow 0.2s;
+    }
+    .support-banner .support-link:hover .fa-youtube {
+       color: #ff2a2a;
+       text-shadow: 0 0 8px #ff2a2a99;
+    }
+    .support-banner .support-link:hover .fa-instagram {
+       color: #e1306c;
+       text-shadow: 0 0 8px #e1306c99;
+    }
+    @media (max-width: 600px) {
+      .support-banner {
+        font-size: 0.98em;
+        flex-direction: column;
+        gap: 7px;
+        padding: 10px 4px 8px 4px;
+        max-width: 98vw;
+        border-radius: 12px;
+        margin-bottom: 0;
+      }
+      .support-banner .support-title {
+        font-size: 1.05em;
+      }
+      .support-banner .support-buttons {
+        gap: 8px;
+      }
+      .support-banner .support-link {
+        font-size: 1em;
+        padding: 8px 10px;
+      }
+    }
+  </style>
+  <style>
+    .event-timer-banner {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 18px;
+      background: rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(8px) saturate(1.2);
+      border-radius: 20px;
+      box-shadow: 0 6px 32px 0 rgba(255,215,0,0.13), 0 2px 12px 0 #0006;
+      border: 5px solid;
+      border-image: linear-gradient(120deg, #ffd700 0%, #ffb300 50%, #ffe066 100%) 1;
+      padding: 18px 24px 18px 18px;
+      min-height: 80px;
+      transition: box-shadow 0.18s, background 0.18s;
+      width: 100%;
+      max-width: 500px;
+      margin: 2px auto 0 auto;
+      box-sizing: border-box;
+    }
+    .event-timer-banner:hover {
+      box-shadow: 0 12px 48px 0 rgba(255,215,0,0.18), 0 4px 24px 0 #000a;
+      background: rgba(255, 255, 255, 0.28);
+    }
+    .event-timer-img {
+      width: 62px;
+      height: 62px;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 4px 18px #ffe06688, 0 0 0 4px #fffbe6cc;
+      background: #fffbe6;
+      border: 3px solid transparent;
+      background-clip: padding-box;
+      flex-shrink: 0;
+      margin-left: 4px;
+      margin-right: 0;
+      display: block;
+      transform: rotate(-8deg) scale(1);
+      transition: box-shadow 0.22s, transform 0.22s cubic-bezier(.4,1.4,.6,1.1);
+    }
+    .event-timer-img:hover {
+      box-shadow: 0 8px 32px #ffd700cc, 0 0 0 6px #fffbe6ee;
+      transform: rotate(-2deg) scale(1.09);
+    }
+    .event-timer-banner .timer-blocks {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
+    }
+    .event-timer-banner .timer-row {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      box-sizing: border-box;
+      gap: 0;
+    }
+    .event-timer-banner .timer-label {
+      flex: 1 1 0;
+      text-align: left;
+    }
+    .event-timer-banner .timer-countdown {
+      flex: 1 1 0;
+      text-align: right;
+    }
+    @media (max-width: 600px) {
+      .event-timer-banner {
+        flex-direction: row;
+        gap: 7px;
+        padding: 7px 2vw 7px 2vw;
+        max-width: 98vw;
+        border-radius: 14px;
+        min-height: unset;
+        align-items: center;
+      }
+      .event-timer-img {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        margin-left: 0;
+        margin-bottom: 0;
+      }
+      .event-timer-banner .timer-blocks {
+        gap: 2px;
+      }
+      .event-timer-banner .timer-row {
+        font-size: 0.95em;
+      }
+      .event-timer-banner .timer-label, .event-timer-banner .timer-countdown {
+        font-size: 0.95em;
+      }
+    }
+    .event-timer-banner .timer-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.22em;
+      font-weight: 700;
+      color: #2c1e1e;
+      text-shadow: 0 2px 8px #fffbe6cc, 0 0 2px #ffd70099;
+      letter-spacing: 0.5px;
+      margin-bottom: 2px;
+    }
+    .event-timer-banner .timer-label {
+      color: #2c1e1e;
+      font-weight: 700;
+      margin-right: 8px;
+      font-size: 1.13em;
+      letter-spacing: 0.2px;
+      text-shadow: 0 1px 4px #fffbe6cc;
+    }
+    .event-timer-banner .timer-countdown {
+      font-family: 'Segoe UI Mono', 'Consolas', monospace;
+      font-size: 1.18em;
+      color: #2c1e1e;
+      background: linear-gradient(90deg, #fffbe6 60%, #ffe066 100%);
+      border-radius: 8px;
+      padding: 4px 16px;
+      min-width: 120px;
+      display: inline-block;
+      font-weight: 800;
+      box-shadow: 0 2px 8px #ffe06655;
+      border: 1.5px solid #ffe066;
+      letter-spacing: 0.5px;
+    }
+  </style>
+  <style>
+    body, .modal-content, .force-modal-content {
+      font-family: 'Montserrat', 'Segoe UI', sans-serif;
+    }
+    .force-modal {
+      z-index: 9999 !important;
+      background: rgba(0,0,0,0.97);
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      width: 100vw; height: 100vh;
+      justify-content: center;
+      align-items: center;
+      opacity: 1;
+      pointer-events: all;
+    }
+    .force-modal.active {
+      display: flex !important;
+    }
+    .force-modal-content {
+      background: linear-gradient(135deg, #232323 60%, #2c1e1e 100%);
+      border-radius: 28px;
+      box-shadow: 0 12px 48px #000b, 0 2px 12px #ffd70033;
+      padding: 56px 38px 48px 38px;
+      color: #ffd700;
+      text-align: center;
+      font-size: 1.6em;
+      font-weight: 700;
+      max-width: 98vw;
+      min-width: 320px;
+      min-height: 420px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      animation: fadeInUp 0.7s cubic-bezier(.4,1.4,.6,1.1);
+    }
+    .force-modal .modal-title {
+      color: #ffd700;
+      font-size: 2.4em;
+      margin-bottom: 12px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      text-shadow: 0 4px 18px #000, 0 0 2px #fffbe6;
+    }
+    .force-modal .modal-body {
+      color: #fffbe6;
+      font-size: 1.18em;
+      font-weight: 500;
+      margin-bottom: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+    .force-modal .thanks {
+      color: #6ab34f;
+      font-weight: 700;
+      margin-top: 18px;
+      margin-bottom: 0;
+      font-size: 1.18em;
+      letter-spacing: 0.3px;
+    }
+    .yt-card-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      margin: 18px 0 0 0;
+    }
+    .yt-card {
+      display: flex;
+      align-items: center;
+      background: linear-gradient(90deg, #ff2a2a 60%, #b31217 100%);
+      color: #fff;
+      border-radius: 32px;
+      padding: 14px 32px 14px 20px;
+      font-weight: 900;
+      font-size: 1.25em;
+      box-shadow: 0 4px 24px #ff2a2a99, 0 2px 8px #000a;
+      border: none;
+      transition: transform 0.25s, box-shadow 0.25s;
+      animation: fadeInYtCard 0.7s cubic-bezier(.4,1.4,.6,1.1);
+      letter-spacing: 0.7px;
+      margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
+    .yt-card i {
+      margin-right: 12px;
+      font-size: 1.5em;
+      color: #fff;
+      filter: drop-shadow(0 0 2px #ff2a2a);
+    }
+    .yt-card:hover {
+      transform: scale(1.09) rotate(-2deg);
+      box-shadow: 0 8px 32px #ff2a2a99, 0 4px 16px #000a;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInYtCard {
+      from { opacity: 0; transform: scale(0.7) translateY(20px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    @media (max-width: 600px) {
+      .force-modal-content {
+        padding: 16px 2vw;
+        font-size: 1em;
+        min-width: unset;
+        min-height: 320px;
+      }
+      .force-modal .modal-title {
+        font-size: 1.1em;
+      }
+      .yt-card-row {
+        gap: 10px;
+      }
+      .yt-card {
+        font-size: 0.98em;
+        padding: 7px 14px 7px 10px;
+        border-radius: 18px;
+      }
+      .yt-card i {
+        font-size: 1.1em;
+        margin-right: 7px;
+      }
+    }
+  </style>
+  <style>
++    .force-key-row {
++      display: flex;
++      flex-direction: row;
++      align-items: center;
++      justify-content: center;
++      gap: 12px;
++      margin: 22px 0 0 0;
++      width: 100%;
++    }
++    .force-key-input-wrap {
++      position: relative;
++      display: flex;
++      align-items: center;
++      width: 220px;
++      max-width: 90vw;
++    }
++    #forceKeyInput {
++      font-size: 1.1em;
++      padding: 8px 38px 8px 14px;
++      border-radius: 8px;
++      border: 1.5px solid #ffd700;
++      outline: none;
++      width: 100%;
++      background: #181818;
++      color: #ffd700;
++      letter-spacing: 1px;
++      transition: border 0.18s;
++    }
++    #forceKeyInput:focus {
++      border-color: #ffe066;
++      background: #232323;
++    }
++    .force-key-toggle {
++      position: absolute;
++      right: 7px;
++      top: 50%;
++      transform: translateY(-50%);
++      background: none;
++      border: none;
++      color: #ffd700;
++      font-size: 1.2em;
++      cursor: pointer;
++      padding: 0 4px;
++      z-index: 2;
++      opacity: 0.7;
++      transition: opacity 0.18s;
++    }
++    .force-key-toggle:hover {
++      opacity: 1;
++    }
++    .force-key-login-btn {
++      font-size: 1.1em;
++      padding: 8px 24px;
++      border-radius: 8px;
++      background: linear-gradient(90deg, #ffd700 60%, #ffe066 100%);
++      color: #222;
++      font-weight: 700;
++      border: none;
++      box-shadow: 0 2px 8px #ffd70055;
++      cursor: pointer;
++      transition: background 0.18s, box-shadow 0.18s;
++    }
++    .force-key-login-btn:hover {
++      background: linear-gradient(90deg, #ffe066 60%, #ffd700 100%);
++      box-shadow: 0 4px 16px #ffd70099;
++    }
++    .force-key-msg {
++      margin: 10px 0 0 0;
++      font-size: 1em;
++      min-height: 1.5em;
++      text-align: center;
++      width: 100%;
++    }
++    .force-modal-bottom {
++      margin-top: 38px;
++      color: #ffd700;
++      font-weight: 700;
++      font-size: 1.13em;
++      letter-spacing: 0.2px;
++      text-align: center;
++      width: 100%;
++      border-top: 1.5px solid #ffd70033;
++      padding-top: 18px;
++      position: relative;
++      bottom: 0;
++    }
++    @media (max-width: 600px) {
++      .force-key-row {
++        flex-direction: column;
++        gap: 8px;
++        margin-top: 18px;
++      }
++      .force-key-input-wrap {
++        width: 98vw;
++        max-width: 98vw;
++      }
++      #forceKeyInput {
++        font-size: 1em;
++        padding: 7px 36px 7px 10px;
++      }
++      .force-key-login-btn {
++        font-size: 1em;
++        padding: 7px 18px;
++      }
++      .force-modal-bottom {
++        font-size: 1em;
++        margin-top: 24px;
++        padding-top: 12px;
++      }
++    }
++  </style>
+<style>
++    .supporter-key-card {
++      background: linear-gradient(135deg, #232323 60%, #2c1e1e 100%);
++      border-radius: 28px;
++      box-shadow: 0 8px 32px #000a, 0 2px 12px #ffd70033;
++      border: 2px solid #ffd70033;
++      padding: 38px 38px 28px 38px;
++      margin: 40px auto 0 auto;
++      display: flex;
++      flex-direction: column;
++      align-items: center;
++      gap: 20px;
++      max-width: 400px;
++      width: 100%;
++      transition: box-shadow 0.2s;
++      position: relative;
++    }
++    .supporter-key-card:hover {
++      box-shadow: 0 12px 48px #000c, 0 4px 18px #ffd70055;
++    }
++    .supporter-key-title {
++      color: #ffd700;
++      font-size: 1.45em;
++      font-weight: 900;
++      letter-spacing: 0.7px;
++      margin-bottom: 8px;
++      display: flex;
++      align-items: center;
++      gap: 10px;
++      justify-content: center;
++      text-shadow: 0 2px 8px #000a;
++    }
++    .supporter-key-title i {
++      font-size: 1.18em;
++      color: #ffd700;
++    }
++    .supporter-key-fields {
++      display: flex;
++      flex-direction: row;
++      gap: 12px;
++      width: 100%;
++      justify-content: center;
++      align-items: center;
++    }
++    .force-key-input-wrap {
++      position: relative;
++      display: flex;
++      align-items: center;
++      width: 190px;
++      max-width: 90vw;
++    }
++    #forceKeyInput {
++      font-size: 1.13em;
++      padding: 12px 40px 12px 16px;
++      border-radius: 12px;
++      border: 2px solid #ffd700;
++      outline: none;
++      width: 100%;
++      background: #181818;
++      color: #ffd700;
++      letter-spacing: 1px;
++      transition: border 0.18s, box-shadow 0.18s;
++      box-shadow: 0 2px 8px #0002;
++    }
++    #forceKeyInput:focus {
++      border-color: #ffe066;
++      background: #232323;
++      box-shadow: 0 4px 16px #ffd70033;
++    }
++    .force-key-toggle {
++      position: absolute;
++      right: 8px;
++      top: 50%;
++      transform: translateY(-50%);
++      background: none;
++      border: none;
++      color: #ffd700;
++      font-size: 1.25em;
++      cursor: pointer;
++      padding: 0 4px;
++      z-index: 2;
++      opacity: 0.7;
++      transition: opacity 0.18s;
++    }
++    .force-key-toggle:hover {
++      opacity: 1;
++    }
++    .force-key-login-btn {
++      font-size: 1.13em;
++      padding: 12px 28px;
++      border-radius: 12px;
++      background: linear-gradient(90deg, #ffd700 60%, #ffe066 100%);
++      color: #222;
++      font-weight: 700;
++      border: none;
++      box-shadow: 0 2px 8px #ffd70055;
++      cursor: pointer;
++      transition: background 0.18s, box-shadow 0.18s;
++      margin-left: 2px;
++    }
++    .force-key-login-btn:hover {
++      background: linear-gradient(90deg, #ffe066 60%, #ffd700 100%);
++      box-shadow: 0 4px 16px #ffd70099;
++    }
++    .force-key-save-row {
++      margin: 8px 0 0 0;
++      text-align: left;
++      width: 100%;
++      display: flex;
++      justify-content: flex-start;
++    }
++    .force-key-save-label {
++      display: flex;
++      align-items: center;
++      gap: 7px;
++      font-size: 1em;
++      color: #ffd700;
++      cursor: pointer;
++      user-select: none;
++    }
++    .force-key-save-label input[type="checkbox"] {
++      accent-color: #ffd700;
++      vertical-align: middle;
++    }
++    .force-key-msg {
++      margin: 12px 0 0 0;
++      font-size: 1.08em;
++      min-height: 1.5em;
++      text-align: center;
++      width: 100%;
++    }
++    @media (max-width: 600px) {
++      .supporter-key-card {
++        padding: 16px 4vw 12px 4vw;
++        max-width: 98vw;
++        gap: 12px;
++      }
++      .supporter-key-fields {
++        flex-direction: column;
++        gap: 8px;
++      }
++      .supporter-key-title {
++        font-size: 1.08em;
++      }
++      .force-key-input-wrap {
++        width: 98vw;
++        max-width: 98vw;
++      }
++      #forceKeyInput {
++        font-size: 1em;
++        padding: 9px 36px 9px 10px;
++      }
++      .force-key-login-btn {
++        font-size: 1em;
++        padding: 9px 18px;
++      }
++    }
+  </style>
+  <style>
+    /* Force-logout modal ve supporter-key-card için izole ve responsive stiller */
+    .force-modal {
+      z-index: 9999 !important;
+      background: rgba(0,0,0,0.97);
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      width: 100vw; height: 100vh;
+      justify-content: center;
+      align-items: center;
+      opacity: 1;
+      pointer-events: all;
+    }
+    .force-modal.active {
+      display: flex !important;
+    }
+    .force-modal .modal-content {
+      background: #232323;
+      border-radius: 22px;
+      box-shadow: 0 8px 32px #000a, 0 2px 12px #ffd70033;
+      border: 2px solid #ffd70033;
+      padding: 38px 38px 32px 38px;
+      margin: 48px auto 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 22px;
+      max-width: 600px;
+      width: 98vw;
+      position: relative;
+      max-height: 98vh;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+    }
+    .force-modal .modal-title {
+      color: #ffd700;
+      font-size: 1.45em;
+      font-weight: 900;
+      letter-spacing: 0.7px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      justify-content: center;
+      text-shadow: 0 2px 8px #000a;
+    }
+    .force-modal .modal-body {
+      color: #fffbe6;
+      font-size: 1.13em;
+      font-weight: 500;
+      margin-bottom: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+      width: 100%;
+      box-sizing: border-box;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .force-modal .thanks {
+      color: #6ab34f;
+      font-weight: 700;
+      margin-top: 18px;
+      margin-bottom: 0;
+      font-size: 1.13em;
+      letter-spacing: 0.3px;
+    }
+    .force-modal .yt-card-row {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 18px 12px;
+      margin: 12px 0 0 0;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .force-modal .yt-card {
+      display: flex;
+      align-items: center;
+      background: linear-gradient(90deg, #ff2a2a 60%, #b31217 100%);
+      color: #fff;
+      border-radius: 32px;
+      padding: 10px 22px 10px 14px;
+      font-weight: 900;
+      font-size: 1.08em;
+      box-shadow: 0 4px 24px #ff2a2a99, 0 2px 8px #000a;
+      border: none;
+      transition: transform 0.25s, box-shadow 0.25s;
+      letter-spacing: 0.7px;
+      margin: 0;
+      min-width: 160px;
+      max-width: 90vw;
+      word-break: break-all;
+      justify-content: flex-start;
+    }
+    .force-modal .yt-card i {
+      margin-right: 10px;
+      font-size: 1.2em;
+      color: #fff;
+      filter: drop-shadow(0 0 2px #ff2a2a);
+    }
+    .force-modal .yt-card:hover {
+      transform: scale(1.09) rotate(-2deg);
+      box-shadow: 0 8px 32px #ff2a2a99, 0 4px 16px #000a;
+    }
+    .force-modal .supporter-key-card {
+      background: linear-gradient(135deg, #232323 60%, #2c1e1e 100%);
+      border-radius: 22px;
+      box-shadow: 0 8px 32px #000a, 0 2px 12px #ffd70033;
+      border: 2px solid #ffd70033;
+      padding: 28px 18px 18px 18px;
+      margin: 24px auto 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      max-width: 400px;
+      width: 100%;
+      transition: box-shadow 0.2s;
+      position: relative;
+      box-sizing: border-box;
+    }
+    .force-modal .supporter-key-card:hover {
+      box-shadow: 0 12px 48px #000c, 0 4px 18px #ffd70055;
+    }
+    .force-modal .supporter-key-title {
+      color: #ffd700;
+      font-size: 1.18em;
+      font-weight: 900;
+      letter-spacing: 0.7px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      justify-content: center;
+      text-shadow: 0 2px 8px #000a;
+    }
+    .force-modal .supporter-key-title i {
+      font-size: 1.18em;
+      color: #ffd700;
+    }
+    .force-modal .supporter-key-fields {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .force-modal .force-key-input-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 170px;
+      max-width: 90vw;
+    }
+    .force-modal .force-key-input {
+      font-size: 1em;
+      padding: 8px 34px 8px 12px;
+      border-radius: 8px;
+      border: 1.5px solid #ffd700;
+      outline: none;
+      width: 100%;
+      background: #181818;
+      color: #ffd700;
+      letter-spacing: 1px;
+      transition: border 0.18s, box-shadow 0.18s;
+      box-shadow: 0 2px 8px #0002;
+    }
+    .force-modal .force-key-input:focus {
+      border-color: #ffe066;
+      background: #232323;
+      box-shadow: 0 4px 16px #ffd70033;
+    }
+    .force-modal .force-key-toggle {
+      position: absolute;
+      right: 6px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: #ffd700;
+      font-size: 1.1em;
+      cursor: pointer;
+      padding: 0 4px;
+      z-index: 2;
+      opacity: 0.7;
+      transition: opacity 0.18s;
+    }
+    .force-modal .force-key-toggle:hover {
+      opacity: 1;
+    }
+    .force-modal .force-key-login-btn {
+      font-size: 1em;
+      padding: 8px 18px;
+      border-radius: 8px;
+      background: linear-gradient(90deg, #ffd700 60%, #ffe066 100%);
+      color: #222;
+      font-weight: 700;
+      border: none;
+      box-shadow: 0 2px 8px #ffd70055;
+      cursor: pointer;
+      transition: background 0.18s, box-shadow 0.18s;
+      margin-left: 2px;
+    }
+    .force-modal .force-key-login-btn:hover {
+      background: linear-gradient(90deg, #ffe066 60%, #ffd700 100%);
+      box-shadow: 0 4px 16px #ffd70099;
+    }
+    .force-modal .force-key-save-row {
+      margin: 8px 0 0 0;
+      text-align: left;
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+    }
+    .force-modal .force-key-save-label {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.98em;
+      color: #ffd700;
+      cursor: pointer;
+      user-select: none;
+    }
+    .force-modal .force-key-save-label input[type="checkbox"] {
+      accent-color: #ffd700;
+      vertical-align: middle;
+    }
+    .force-modal .force-key-msg {
+      margin: 10px 0 0 0;
+      font-size: 1em;
+      min-height: 1.5em;
+      text-align: center;
+      width: 100%;
+    }
+    @media (max-width: 800px) {
+      .force-modal .modal-content {
+        max-width: 98vw;
+        padding: 12px 2vw;
+      }
+      .force-modal .yt-card-row {
+        gap: 8px 4px;
+      }
+      .force-modal .yt-card {
+        font-size: 0.98em;
+        padding: 7px 10px 7px 7px;
+        border-radius: 18px;
+        min-width: 120px;
+        max-width: 98vw;
+      }
+      .force-modal .supporter-key-card {
+        padding: 10px 2vw 8px 2vw;
+        max-width: 98vw;
+        gap: 8px;
+      }
+      .force-modal .supporter-key-fields {
+        flex-direction: column;
+        gap: 6px;
+      }
+      .force-modal .supporter-key-title {
+        font-size: 1em;
+      }
+      .force-modal .force-key-input-wrap {
+        width: 98vw;
+        max-width: 98vw;
+      }
+      .force-modal .force-key-input {
+        font-size: 0.98em;
+        padding: 7px 28px 7px 8px;
+      }
+      .force-modal .force-key-login-btn {
+        font-size: 0.98em;
+        padding: 7px 12px;
+      }
+    }
+  </style>
+  <style>
+    // ... existing code ...
++   // Admin panel modal logic
++   function getQueryParam(name) {
++     return new URLSearchParams(window.location.search).get(name);
++   }
++   if (getQueryParam('admin') === '1') {
++     const adminModal = document.getElementById('adminPanelModal');
++     adminModal.style.display = 'flex';
++     document.body.style.overflow = 'hidden';
++     const btn = document.getElementById('forceLogoutBtn');
++     const input = document.getElementById('adminPasswordInput');
++     const msg = document.getElementById('adminPanelMsg');
++     btn.onclick = async function() {
++       btn.disabled = true;
++       msg.textContent = '';
++       const password = input.value;
++       try {
++         const res = await fetch('/admin/force-logout', {
++           method: 'POST',
++           headers: { 'Content-Type': 'application/json' },
++           body: JSON.stringify({ password })
++         });
++         const data = await res.json();
++         if (data.success) {
++           msg.textContent = 'Tüm kullanıcılar devre dışı bırakıldı!';
++           msg.style.color = '#6ab34f';
++         } else {
++           msg.textContent = data.error || 'Hata oluştu.';
++           msg.style.color = '#e74c3c';
++         }
++       } catch(e) {
++         msg.textContent = 'Sunucuya ulaşılamıyor.';
++         msg.style.color = '#e74c3c';
++       }
++       btn.disabled = false;
++     };
++   }
+// ... existing code ...
+  </style>
+  <script>
+    // Key input göster/gizle toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const keyInput = document.getElementById('forceKeyInput');
+      const toggleBtn = document.getElementById('forceKeyToggle');
+      const saveCbx = document.getElementById('forceKeySaveCbx');
+      // Prefill from localStorage
+      if (keyInput && localStorage.getItem('forceKeySaved')) {
+        keyInput.value = localStorage.getItem('forceKeySaved');
+        if (saveCbx) saveCbx.checked = true;
+      }
+      if (keyInput && toggleBtn) {
+        toggleBtn.onclick = function() {
+          if (keyInput.type === 'password') {
+            keyInput.type = 'text';
+            toggleBtn.innerHTML = '<i class="far fa-eye-slash"></i>';
+          } else {
+            keyInput.type = 'password';
+            toggleBtn.innerHTML = '<i class="far fa-eye"></i>';
+          }
+        };
+      }
+      // Key kaydetme checkbox mantığı
+      if (keyInput && saveCbx) {
+        saveCbx.addEventListener('change', function() {
+          if (saveCbx.checked && keyInput.value) {
+            localStorage.setItem('forceKeySaved', keyInput.value);
+          } else {
+            localStorage.removeItem('forceKeySaved');
+          }
+        });
+        keyInput.addEventListener('input', function() {
+          if (saveCbx.checked && keyInput.value) {
+            localStorage.setItem('forceKeySaved', keyInput.value);
+          } else {
+            localStorage.removeItem('forceKeySaved');
+          }
+        });
++        // Otomatik key formatlama: KRL-XXXX-XXXX-XXXX
++        keyInput.addEventListener('input', function(e) {
++          let raw = keyInput.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
++          let formatted = '';
++          if (raw.startsWith('KRL')) {
++            raw = raw.slice(0,15);
++            formatted = raw.slice(0,3);
++            if (raw.length > 3) formatted += '-' + raw.slice(3,7);
++            if (raw.length > 7) formatted += '-' + raw.slice(7,11);
++            if (raw.length > 11) formatted += '-' + raw.slice(11,15);
++          } else {
++            raw = raw.slice(0,12);
++            if (raw.length > 0) formatted = raw.slice(0,4);
++            if (raw.length > 4) formatted += '-' + raw.slice(4,8);
++            if (raw.length > 8) formatted += '-' + raw.slice(8,12);
++          }
++          formatted = formatted.replace(/-+/g, '-');
++          if (formatted.endsWith('-')) formatted = formatted.slice(0, -1);
++          let pos = keyInput.selectionStart;
++          let prevLen = keyInput.value.length;
++          keyInput.value = formatted;
++          let diff = formatted.length - prevLen;
++          keyInput.setSelectionRange(pos + diff, pos + diff);
++        });
+      }
+    });
+  </script>
+</head>
+<body>
+  <!-- Etkinlik Sayaç Bannerı -->
+  <div class="event-timer-banner">
+    <img src="event.webp" alt="Etkinlik" class="event-timer-img" />
+    <div class="timer-blocks">
+      <div class="timer-row">
+        <span class="timer-label">Drop Sonu:</span>
+        <span class="timer-countdown" id="dropCountdown"></span>
+      </div>
+      <div class="timer-row">
+        <span class="timer-label">Etkinlik Sonu:</span>
+        <span class="timer-countdown" id="eventCountdown"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  
+    <div class="container">
+      
+      
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center" style="gap:8px;">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Kralı Yakala</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="okey.html">Okey Eventi</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" tabindex="-1" aria-disabled="true" href="#">Kahin Eventi <span class="badge bg-secondary ms-1">Yakında</span></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Ana İçerik -->
+  <div class="main-container">
+    <div class="main-controls">
+      <button id="clearBtn" class="button" onclick="clearSelected()" aria-label="Sil" title="Sil">
+        <i class="bi bi-eraser"></i>
+      </button>
+      <button id="markNoFiveMainBtn" class="button" onclick="markNoFiveMain()" aria-label="5 Yok (Yeşil Yap)" title="5 Yok (Yeşil Yap)">
+        <i class="bi bi-check2-circle"></i>
+      </button>
+      <button id="undoBtn" class="button" onclick="undoMove()" aria-label="Geri Al" title="Hamleyi geri al">
+        <i class="bi bi-arrow-left-circle"></i>
+      </button>
+      <button id="redoBtn" class="button" onclick="redoMove()" aria-label="İleri Al" title="İleri hamle">
+        <i class="bi bi-arrow-right-circle"></i>
+      </button>
+      <button id="resetBtn" class="button" onclick="resetAll()" aria-label="Sıfırla" title="Sıfırla">
+        <i class="bi bi-arrow-clockwise"></i>
+      </button>
+      <button id="zoomOutBtn" class="button" onclick="zoomGrid(-1)" aria-label="Küçült" title="Küçült">
+        <i class="bi bi-zoom-out"></i>
+      </button>
+      <button id="zoomInBtn" class="button" onclick="zoomGrid(1)" aria-label="Büyüt" title="Büyüt">
+        <i class="bi bi-zoom-in"></i>
+      </button>
+      <button id="helpBtn" class="button" onclick="showHelp()" aria-label="Yardım" title="Yardım">
+        <i class="bi bi-question-circle"></i>
+      </button>
+      <div class="online-counter" id="mainOnlineCounter">
+        <i class="fas fa-users"></i> <span id="onlineCount">0</span>
+      </div>
+    </div>
+    
+    <div class="card-selection" aria-label="Kart Seçimi">
+      <div class="card-button-box" style="background-color: #2ecc71" onclick="tryApplyValue('1')" role="button" tabindex="0" aria-label="Kart 1, kalan 7 adet">
+        <span class="cell-content">1</span>
+        <span class="card-count" id="c1">7</span>
+      </div>
+      <div class="card-button-box" style="background-color: #e67e22" onclick="tryApplyValue('2')" role="button" tabindex="0" aria-label="Kart 2, kalan 4 adet">
+        <span class="cell-content">2</span>
+        <span class="card-count" id="c2">4</span>
+      </div>
+      <div class="card-button-box" style="background-color: #f1c40f" onclick="tryApplyValue('3')" role="button" tabindex="0" aria-label="Kart 3, kalan 5 adet">
+        <span class="cell-content">3</span>
+        <span class="card-count" id="c3">5</span>
+      </div>
+      <div class="card-button-box" style="background-color: #9b59b6" onclick="tryApplyValue('4')" role="button" tabindex="0" aria-label="Kart 4, kalan 5 adet">
+        <span class="cell-content">4</span>
+        <span class="card-count" id="c4">5</span>
+      </div>
+      <div class="card-button-box" style="background-color: #3498db" onclick="tryApplyValue('5')" role="button" tabindex="0" aria-label="Kart 5, kalan 3 adet">
+        <span class="cell-content">5</span>
+        <span class="card-count" id="c5">3</span>
+      </div>
+      <div class="card-button-box" style="background-color: #e74c3c" onclick="tryApplyValue('K')" role="button" tabindex="0" aria-label="Kral kartı, kalan 1 adet">
+        <span class="cell-content">K</span>
+        <span class="card-count" id="cK">1</span>
+      </div>
+    </div>
+
+    <div class="grid-container" aria-label="Ana Oyun Alanı">
+      <div class="grid" id="grid"></div>
+    </div>
+
+    <div class="bottom-controls" id="bottomControls">
+      <div class="adjacent-buttons" id="adjacentButtons">
+        <button id="hasFiveBtn" class="button" onclick="markAdjacents(true)" disabled>
+          5 Var
+        </button>
+        <button id="noFiveBtn" class="button" onclick="markAdjacents(false)" disabled>
+          5 Yok
+        </button>
+      </div>
+      
+   
+
+  <!-- Yardım Modalı -->
+  <div class="modal-overlay" id="helpModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Kullanım Kılavuzu</h2>
+      </div>
+      <div class="modal-body">
+        <ol>
+          <li>Boş bir hücre seçin</li>
+          <li>Kart butonlarından birine tıklayın veya klavyeden 1-5/K tuşlarına basın</li>
+          <li>"5 Var" veya "5 Yok" butonlarıyla komşu hücreleri işaretleyin</li>
+          <li>"Sil" tek hücreyi, "Sıfırla" tüm tahtayı temizler</li>
+          <li>"Hızlı Seçim" modunda değer girince hücre üzerinde 5 Var/Yok seçenekleri çıkar</li>
+          <li>🚩 5'e komşu olan hücrelere eklenir.</li>
+        </ol>
+      </div>
+      <div class="modal-footer">
+        <button class="close-modal" onclick="hideHelp()">Kapat</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Kullanım Dışı Modalı -->
+  <div class="modal-overlay force-modal" id="forceLogoutModal">
+    <div class="modal-content force-modal-content">
+      <div class="modal-header">
+        <div class="modal-title-row" style="display:flex; align-items:center; gap:16px; justify-content:center;">
+          <h2 class="modal-title" style="margin:0;">Kullanım Kısıtlandı!</h2>
+          <div class="modal-online-counter" style="display:flex; align-items:center; gap:6px; font-size:1em; background:rgba(30,30,30,0.85); border-radius:14px; border:1.2px solid #ffd700; box-shadow:0 1px 6px #ffd70022; padding:2px 10px; color:#ffd700; font-weight:600;">
+            <i class="fas fa-users"></i> <span id="modalOnlineCount">0</span>
+          </div>
+        </div>
+      </div>
+      <div class="modal-body">
+
+        </div>
+        <div class="supporter-key-card" style="background:linear-gradient(90deg,#232323 60%,#2c1e1e 100%);border-radius:18px;padding:28px 32px 20px 32px;margin:32px auto 18px auto;box-shadow:0 2px 12px #ffd70033;display:flex;flex-direction:column;align-items:center;gap:16px;max-width:600px;width:100%;text-align:center;">
+          <div class="supporter-key-title" style="color:#ffd700;font-size:1.35em;font-weight:700;display:flex;align-items:center;gap:12px;text-shadow:0 2px 8px #000a;justify-content:center;">
+            <i class="fas fa-user-shield"></i> Destekçi Girişi
+          </div>
+          <div class="supporter-key-fields" style="display:flex;flex-direction:column;gap:10px;width:100%;justify-content:center;align-items:center;">
+            <div class="force-key-input-wrap" style="position:relative;display:flex;align-items:center;width:100%;max-width:340px;margin:0 auto;">
+              <input id="forceKeyInput" class="force-key-input" type="password" placeholder="Destekçi Giriş Kodu" autocomplete="off" style="font-size:1.13em;padding:12px 40px 12px 16px;border-radius:12px;border:2px solid #ffd700;outline:none;width:100%;background:#181818;color:#ffd700;letter-spacing:1px;transition:border 0.18s,box-shadow 0.18s;box-shadow:0 2px 8px #0002;" />
+              <button type="button" tabindex="-1" aria-label="Göster/Gizle" class="force-key-toggle" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:none;color:#ffd700;font-size:1.25em;cursor:pointer;padding:0 4px;z-index:2;opacity:0.7;transition:opacity 0.18s;"><i class="far fa-eye"></i></button>
+            </div>
+            <div class="force-key-save-row" style="margin:8px 0 0 0;text-align:center;width:100%;display:flex;justify-content:center;max-width:340px;">
+              <label class="force-key-save-label" style="display:flex;align-items:center;gap:7px;font-size:1em;color:#ffd700;cursor:pointer;user-select:none;">
+                <input type="checkbox" class="force-key-save-cbx" style="accent-color:#ffd700;vertical-align:middle;" checked />
+                Keyi Kaydet
+              </label>
+            </div>
+            <button class="force-key-login-btn" style="font-size:1.13em;padding:12px 28px;border-radius:12px;background:linear-gradient(90deg,#ffd700 60%,#ffe066 100%);color:#222;font-weight:700;border:none;box-shadow:0 2px 8px #ffd70055;cursor:pointer;transition:background 0.18s,box-shadow 0.18s;width:100%;max-width:340px;margin:10px auto 0 auto;">Giriş Yap</button>
+          </div>
+          <div class="force-key-msg" style="margin:12px 0 0 0;font-size:1.08em;min-height:1.5em;text-align:center;width:100%;"></div>
+        </div>
+        <!-- YENİ EKLENECEK: Destekçi Keyi Bilgilendirme ve Canlı Yayın Linki -->
+        <!-- supporter-key-info bölümü tamamen kaldırıldı -->
+        <style>
+          @media (max-width: 600px) {
+            .supporter-key-info, .live-embed-wrap, .live-embed-responsive { max-width: 98vw !important; padding-left: 8px !important; padding-right: 8px !important; }
+            .supporter-key-info { padding: 18px 6vw 12px 6vw !important; gap: 10px !important; }
+            .live-embed-wrap { margin-bottom: 12px !important; }
+            .live-embed-responsive { border-radius: 10px !important; }
+          }
+          @media (max-width: 500px) {
+            .live-embed-wrap { display: none !important; }
+          }
+        </style>
+        <!-- /YENİ EKLENECEK -->
+        <div class="supporter-key-info" style="background:linear-gradient(90deg,#232323 60%,#2c1e1e 100%);border-radius:18px;padding:28px 32px 20px 32px;margin:32px auto 18px auto;box-shadow:0 2px 12px #ffd70033;display:flex;flex-direction:column;align-items:center;gap:16px;max-width:600px;width:100%;text-align:center;">
+          <div style="color:#ffd700;font-size:1.35em;font-weight:700;display:flex;align-items:center;gap:12px;text-shadow:0 2px 8px #000a;justify-content:center;">
+            Ücretsiz Key İçin:
+          </div>
+          <div class="yt-card-row" style="margin-top:10px;display:flex;justify-content:center;gap:18px;width:100%;">
+            <a class='yt-card' href="https://youtu.be/LXINa418AVo" target="_blank" rel="noopener" style="background:linear-gradient(90deg,#ff2a2a 60%,#b31217 100%);color:#fff;font-weight:900;font-size:1.18em;padding:14px 32px 14px 20px;border-radius:32px;box-shadow:0 4px 24px #ff2a2a99,0 2px 8px #000a;display:flex;align-items:center;gap:12px;text-decoration:none;transition:transform 0.25s,box-shadow 0.25s;letter-spacing:0.7px;">
+              <img src="Bastaci.jpg" alt="Bastaci" style="width:38px;height:38px;border-radius:50%;border:2.5px solid #fff;object-fit:cover;box-shadow:0 2px 8px #0006;margin-right:8px;background:#fff;" />
+              @metin2BASHTACISIN
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin Panel Modalı -->
+  <div class="modal-overlay force-modal" id="adminPanelModal" style="display:none;">
+    <div class="modal-content force-modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Admin Paneli</h2>
+      </div>
+      <div class="modal-body">
+        <input type="password" id="adminPasswordInput" placeholder="Yönetici Şifresi" style="font-size:1.1em;padding:8px 12px;border-radius:8px;border:1.5px solid #ffd700;margin-bottom:18px;width:90%;max-width:260px;outline:none;" />
+        <br>
+        <button id="forceLogoutBtn" style="font-size:1.1em;padding:10px 24px;border-radius:8px;background:#ffd700;color:#222;font-weight:700;border:none;box-shadow:0 2px 8px #ffd70055;cursor:pointer;">Kullanıcıları Devre Dışı Bırak</button>
+        <div id="adminPanelMsg" style="margin-top:18px;font-size:1em;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container d-flex flex-column align-items-center">
+      <div class="social-icons">
+        <a href="https://www.youtube.com/@karizmayazilim" target="_blank" aria-label="YouTube Kanalımız"><i class="fab fa-youtube"></i></a>
+      </div>
+
+<!-- Socket.io client kütüphanesini yükleyin -->
+<script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+<script>
+  // Sunucu adresini güncelleyin
+  const socket = io('/', { 
+    transports: ['websocket'],
+    upgrade: false
+  });
+
+  socket.on('connect', () => {
+    console.log('Socket bağlantısı kuruldu');
+  });
+
+  socket.on('updateUsers', (count) => {
+    console.log('Online kullanıcı sayısı:', count);
+    document.getElementById('onlineCount').textContent = count;
+  });
+
+  socket.on('disconnect', () => {
+    console.log('Socket bağlantısı kesildi');
+  });
+
+  // Uygulama tamamen devre dışı bırakma fonksiyonu
+  function setAppDisabled(disabled) {
+    // Tüm butonlar, inputlar ve grid'i devre dışı bırak
+    document.querySelectorAll('button, input, select, textarea').forEach(el => {
+      if (!el.closest('#forceLogoutModal')) {
+        el.disabled = disabled;
+        if (disabled) {
+          el.classList.add('force-disabled');
+          el.style.pointerEvents = 'none';
+          el.style.opacity = '0.5';
+        } else {
+          el.classList.remove('force-disabled');
+          el.style.pointerEvents = '';
+          el.style.opacity = '';
+        }
+      }
+    });
+    // Grid'i de devre dışı bırak
+    const grid = document.getElementById('grid');
+    if (grid) {
+      if (disabled) {
+        grid.classList.add('force-disabled');
+        grid.style.pointerEvents = 'none';
+        grid.style.opacity = '0.5';
+      } else {
+        grid.classList.remove('force-disabled');
+        grid.style.pointerEvents = '';
+        grid.style.opacity = '';
+      }
+    }
+  }
+
+  // --- Force-logout modal ve engelleyici mantığı ---
+  function showForceLogoutModalAndBlock() {
+    const modal = document.getElementById('forceLogoutModal');
+    if (modal) modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', forceBlocker, true);
+    window.addEventListener('mousedown', forceBlocker, true);
+    window.addEventListener('contextmenu', forceBlocker, true);
+    window.addEventListener('touchstart', forceBlocker, true);
+    setAppDisabled(true);
+  }
+
+  // On page load, if forceLogout flag is set, show modal and block everything
+  if (localStorage.getItem('forceLogout') === '1') {
+    const modal = document.getElementById('forceLogoutModal');
+    if (modal) modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', forceBlocker, true);
+    window.addEventListener('mousedown', forceBlocker, true);
+    window.addEventListener('contextmenu', forceBlocker, true);
+    window.addEventListener('touchstart', forceBlocker, true);
+    function forceBlocker(e) {
+      const modal = document.getElementById('forceLogoutModal');
+      if (modal && modal.classList.contains('active')) {
+        if (modal.contains(e.target)) {
+          // Modal içindeyse engelleme
+          return;
+        }
+      }
+      // Modal dışı her şeyi engelle
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+  }
+
+  // Key login logic (frontend only, backend endpoint will be handled separately)
+  const forceKeyInput = document.getElementById('forceKeyInput');
+  const forceKeyLoginBtn = document.getElementById('forceKeyLoginBtn');
+  const forceKeyMsg = document.getElementById('forceKeyMsg');
+  if (forceKeyInput && forceKeyLoginBtn) {
+    forceKeyLoginBtn.onclick = async function() {
+      const key = forceKeyInput.value.trim();
+      if (!key) {
+        forceKeyMsg.textContent = 'Lütfen giriş kodunu girin.';
+        forceKeyMsg.style.color = '#e74c3c';
+        return;
+      }
+      forceKeyLoginBtn.disabled = true;
+      forceKeyMsg.textContent = '';
+      try {
+        const res = await fetch('/api/key-login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ key })
+        });
+        const data = await res.json();
+        if (data.success) {
+          // Başarılı giriş: modalı kapat, engellemeyi kaldır
+          const modal = document.getElementById('forceLogoutModal');
+          if (modal) modal.classList.remove('active');
+          document.body.style.overflow = '';
+          try { localStorage.removeItem('forceLogout'); } catch(e){}
+          // Engelleyen event listener'ları kaldır
+          window.removeEventListener('keydown', forceBlocker, true);
+          window.removeEventListener('mousedown', forceBlocker, true);
+          window.removeEventListener('contextmenu', forceBlocker, true);
+          window.removeEventListener('touchstart', forceBlocker, true);
+          setAppDisabled(false);
+          forceKeyMsg.textContent = 'Giriş başarılı!';
+          forceKeyMsg.style.color = '#6ab34f';
+        } else {
+          forceKeyMsg.textContent = data.error || 'Kod geçersiz veya kullanımda.';
+          forceKeyMsg.style.color = '#e74c3c';
+          try { localStorage.removeItem('forceKey'); } catch(e){}
+          try { localStorage.removeItem('forceKeyIp'); } catch(e){}
+        }
+      } catch(e) {
+        forceKeyMsg.textContent = 'Sunucuya ulaşılamıyor.';
+        forceKeyMsg.style.color = '#e74c3c';
+      }
+      forceKeyLoginBtn.disabled = false;
+    };
+    forceKeyInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') forceKeyLoginBtn.click();
+    });
+  }
+
+  // Sayfa kapatılırken bağlantıyı sonlandır
+  window.addEventListener('beforeunload', () => {
+    socket.close();
+  });
+
+  // Sunucudan force-logout durumu kontrolü
+  fetch('/api/force-logout-status')
+    .then(r => r.json())
+    .then(data => {
+      if (!data.forceLogout) {
+        // Sunucu force-logout modunda değilse localStorage temizle ve modalı kapat
+        try { localStorage.removeItem('forceLogout'); } catch(e){}
+        const modal = document.getElementById('forceLogoutModal');
+        if (modal) modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
+  // Otomatik key login fonksiyonu (IP ile birlikte kontrol)
+  async function tryAutoKeyLogin() {
+    const key = localStorage.getItem('forceKey');
+    const storedIp = localStorage.getItem('forceKeyIp');
+    if (!key || !storedIp) return false;
+    try {
+      const res = await fetch('/api/key-login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ key })
+      });
+      const data = await res.json();
+      if (data.success && data.ip === storedIp) {
+        // Modalı hiç açma, engelleyici ekleme
+        const modal = document.getElementById('forceLogoutModal');
+        if (modal) modal.classList.remove('active');
+        document.body.style.overflow = '';
+        try { localStorage.removeItem('forceLogout'); } catch(e){}
+        window.removeEventListener('keydown', forceBlocker, true);
+        window.removeEventListener('mousedown', forceBlocker, true);
+        window.removeEventListener('contextmenu', forceBlocker, true);
+        window.removeEventListener('touchstart', forceBlocker, true);
+        setAppDisabled(false);
+        try { localStorage.setItem('forceKey', key); } catch(e){}
+        try { localStorage.setItem('forceKeyIp', data.ip); } catch(e){}
+        return true;
+      } else {
+        localStorage.removeItem('forceKey');
+        localStorage.removeItem('forceKeyIp');
+        return false;
+      }
+    } catch(e) {
+      return false;
+    }
+  }
+
+  // Sayfa yüklenince ve force-logout eventinde doğru akış:
+  document.addEventListener('DOMContentLoaded', function() {
+    if (localStorage.getItem('forceLogout') === '1' && localStorage.getItem('forceKey')) {
+      tryAutoKeyLogin().then(success => {
+        if (!success) {
+          showForceLogoutModalAndBlock();
+        }
+      });
+    } else if (localStorage.getItem('forceLogout') === '1') {
+      showForceLogoutModalAndBlock();
+    }
+  });
+
+  // Socket.io force-logout event: önce key login dene, başarısızsa modalı aç
+  socket.on('force-logout', () => {
+    try { localStorage.clear(); } catch(e){}
+    try { localStorage.setItem('forceLogout', '1'); } catch(e){}
+    document.body.style.overflow = 'hidden';
+    if (localStorage.getItem('forceKey')) {
+      tryAutoKeyLogin().then(success => {
+        if (!success) {
+          showForceLogoutModalAndBlock();
+        }
+      });
+    } else {
+      showForceLogoutModalAndBlock();
+    }
+  });
+
+  // Socket.io force-logout-reset event: modalı ve engellemeyi anında kaldır
+  socket.on('force-logout-reset', () => {
+    try { localStorage.removeItem('forceLogout'); } catch(e){}
+    const modal = document.getElementById('forceLogoutModal');
+    if (modal) modal.classList.remove('active');
+    document.body.style.overflow = '';
+    window.removeEventListener('keydown', forceBlocker, true);
+    window.removeEventListener('mousedown', forceBlocker, true);
+    window.removeEventListener('contextmenu', forceBlocker, true);
+    window.removeEventListener('touchstart', forceBlocker, true);
+    setAppDisabled(false);
+  });
+
+  // Online counter'ı modalda da güncelle
+  document.addEventListener('DOMContentLoaded', function() {
+    const mainOnline = document.getElementById('onlineCount');
+    const modalOnline = document.getElementById('modalOnlineCount');
+    function syncModalOnline() {
+      if (mainOnline && modalOnline) {
+        modalOnline.textContent = mainOnline.textContent;
+      }
+    }
+    // İlk yüklemede ve her güncellemede eşitle
+    syncModalOnline();
+    const obs = new MutationObserver(syncModalOnline);
+    if (mainOnline) obs.observe(mainOnline, { childList: true });
+  });
+</script>
+
+      <div class="copyright">
+        &copy; 2025 kraliyakala.com | Geliştiren: Karizma
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const counts = { '1': 7, '2': 4, '3': 5, '4': 5, '5': 3, 'K': 1 };
+    const backgrounds = {
+      '1': 'ck-green.png',
+      '2': 'ck-orange.png',
+      '3': 'ck-yellow.png',
+      '4': 'ck-purple.png',
+      '5': 'ck-blue.png',
+      'K': 'ck-red.png',
+      'default': 'ck-grey.png'
+    };
+
+    const grid = document.getElementById('grid');
+    const selectedCell = { el: null, index: -1, isEmpty: true };
+    const cells = [];
+    const hasFiveBtn = document.getElementById('hasFiveBtn');
+    const noFiveBtn = document.getElementById('noFiveBtn');
+    const bottomControls = document.getElementById('bottomControls');
+    const adjacentButtons = document.getElementById('adjacentButtons');
+    
+    const adjacentStatus = Array(25).fill(null);
+    let quickSelectMode = localStorage.getItem('quickSelectMode') === 'true';
+    let gridZoom = 1;
+
+    // Sayfa yüklendiğinde ayarları yükle
+    function loadSettings() {
+      updateToggleButtons();
+      updateQuickSelectVisual();
+    }
+
+    function updateToggleButtons() {
+      const quickSelectStatus = document.getElementById('quickSelectStatus');
+      if (quickSelectMode) {
+        quickSelectStatus.className = 'status-indicator status-on';
+        document.getElementById('quickSelectBtn').setAttribute('aria-pressed', 'true');
+        adjacentButtons.style.display = 'none'; // Hızlı seçim aktifken butonları gizle
+      } else {
+        quickSelectStatus.className = 'status-indicator status-off';
+        document.getElementById('quickSelectBtn').setAttribute('aria-pressed', 'false');
+        adjacentButtons.style.display = 'flex'; // Hızlı seçim pasifken butonları göster
+      }
+    }
+
+    function updateQuickSelectVisual() {
+      if (quickSelectMode) {
+        bottomControls.classList.add('active-quick');
+      } else {
+        bottomControls.classList.remove('active-quick');
+      }
+    }
+
+    function updateCountsUI() {
+      Object.keys(counts).forEach(key => {
+        const element = document.getElementById(`c${key}`);
+        element.innerText = counts[key];
+        const cardElement = element.parentElement;
+        
+        if (counts[key] <= 0) {
+          cardElement.classList.add('disabled-card');
+        } else {
+          cardElement.classList.remove('disabled-card');
+        }
+      });
+    }
+
+    function createGrid() {
+      for (let i = 0; i < 25; i++) {
+        const cell = document.createElement('div');
+        cell.className = 'cell';
+        cell.dataset.index = i;
+        
+        const contentSpan = document.createElement('span');
+        contentSpan.className = 'cell-content';
+        cell.appendChild(contentSpan);
+        
+        // Hücre aksiyonları için div oluştur
+        const actionsDiv = document.createElement('div');
+        actionsDiv.className = 'cell-actions';
+        actionsDiv.innerHTML = `
+          <button style="background: linear-gradient(90deg, rgba(47,81,102,1) 0%, rgba(89,156,199,1) 100%)" 
+                  onclick="event.stopPropagation(); markAdjacents(true)">5 Var</button>
+          <button style="background: #95c97d" 
+                  onclick="event.stopPropagation(); markAdjacents(false)">5 Yok</button>
+        `;
+        cell.appendChild(actionsDiv);
+        
+        cell.addEventListener('click', () => selectCell(cell, i));
+        grid.appendChild(cell);
+        cells.push(cell);
+      }
+    }
+
+function selectCell(cell, index) {
+  if (selectedCell.el) {
+    selectedCell.el.classList.remove('selected');
+    const actions = selectedCell.el.querySelector('.cell-actions');
+    if (actions) actions.style.display = 'none';
+  }
+  
+  selectedCell.el = cell;
+  selectedCell.index = index;
+  selectedCell.isEmpty = cell.querySelector('.cell-content').textContent === '';
+  cell.classList.add('selected');
+  
+  if (!quickSelectMode) {
+    hasFiveBtn.disabled = false;
+    noFiveBtn.disabled = false;
+  }
+  // Hızlı seçim modunda, hücre boş değilse ve daha önce aksiyon yapılmadıysa aksiyon butonlarını göster
+  if (quickSelectMode && !selectedCell.isEmpty && !allAdjacentsMarkedAsNoFive(index) && counts['5'] > 0 && !cell.classList.contains('adjacent-marked-once')) {
+    const actions = cell.querySelector('.cell-actions');
+    if (actions) actions.style.display = 'flex';
+  }
+}
+
+function tryApplyValue(value) {
+  if (!selectedCell.el || !selectedCell.isEmpty) return;
+  if (counts[value] <= 0) {
+    alert('Bu kart tükendi!');
+    return;
+  }
+  
+  applyValue(value);
+}
+  
+
+
+function applyValue(value, index = selectedCell.index) {
+  if (index === undefined || index < 0 || index >= 25) return;
+  if (!cells[index]) return;
+  
+  const cell = cells[index];
+  const contentSpan = cell.querySelector('.cell-content');
+  const current = contentSpan.textContent;
+  const isRemovingFive = (current === '5' && value === '');
+  
+  if (contentSpan.textContent !== '' && value !== '') return;
+  if (counts[value] <= 0) return;
+  
+  if (current && counts[current] !== undefined) counts[current]++;
+  
+  // Önce değeri güncelle
+  contentSpan.textContent = value;
+  cell.style.backgroundImage = `url(${backgrounds[value] || backgrounds['default']})`;
+  cell.style.backgroundColor = '';
+  if (value !== '') counts[value]--;
+  
+  if (index === selectedCell.index) {
+    selectedCell.isEmpty = value === '';
+  }
+  
+  removeAdjacentOverlay(index);
+  
+  if (value === 'K') {
+    cell.classList.add('king-animation');
+    setTimeout(() => {
+      cell.classList.remove('king-animation');
+    }, 1000);
+  }
+  
+  if (value === '5') {
+    const adjIndices = getAdjacentIndices(index);
+    for (const nIdx of adjIndices) {
+      const targetCell = cells[nIdx];
+      // Eğer zaten flag yoksa ve hücrede no-five-marked yoksa ekle
+      if (!targetCell.querySelector('.flag-indicator') && !targetCell.classList.contains('no-five-marked')) {
+        const flag = document.createElement('span');
+        flag.className = 'flag-indicator';
+        flag.innerHTML = '🚩';
+        flag.style.position = 'absolute';
+        flag.style.bottom = '2px';
+        flag.style.right = '2px';
+        targetCell.appendChild(flag);
+      }
+      // Eğer hücre no-five-marked ise ve flag yoksa yine ekle
+      if (targetCell.classList.contains('no-five-marked') && !targetCell.querySelector('.flag-indicator')) {
+        const flag = document.createElement('span');
+        flag.className = 'flag-indicator';
+        flag.innerHTML = '🚩';
+        flag.style.position = 'absolute';
+        flag.style.bottom = '2px';
+        flag.style.right = '2px';
+        targetCell.appendChild(flag);
+      }
+    }
+  }
+  
+  // 5 siliniyorsa, komşu hücrelerdeki flag'leri güncel duruma göre kaldır
+  if (isRemovingFive) {
+    const adjIndices = getAdjacentIndices(index);
+    for (const nIdx of adjIndices) {
+      const targetCell = cells[nIdx];
+      const flag = targetCell.querySelector('.flag-indicator');
+      if (flag) {
+        // Bu hücrenin komşularında güncel olarak hiç 5 var mı?
+        const neighborAdj = getAdjacentIndices(nIdx);
+        let hasAnyFive = false;
+        for (const nnIdx of neighborAdj) {
+          const neighborCell = cells[nnIdx];
+          const neighborValue = neighborCell.querySelector('.cell-content').textContent;
+          if (neighborValue === '5') {
+            hasAnyFive = true;
+            break;
+          }
+        }
+        if (!hasAnyFive) flag.remove();
+      }
+    }
+  }
+  
+  updateCountsUI();
+  
+  // Hızlı seçim modunda ise VE hücre boş değilse aksiyon butonlarını göster
+  if (quickSelectMode && selectedCell.el && !selectedCell.isEmpty && !allAdjacentsMarkedAsNoFive(index) && counts['5'] > 0) {
+    const actions = selectedCell.el.querySelector('.cell-actions');
+    if (actions) actions.style.display = 'flex';
+  }
+}
+
+    function removeAdjacentOverlay(index) {
+      const cell = cells[index];
+      const overlay = cell.querySelector('.adjacent-overlay');
+      if (overlay) {
+        cell.removeChild(overlay);
+      }
+      adjacentStatus[index] = null;
+    }
+
+    function clearSelected() {
+      if (!selectedCell.el) return;
+      const contentSpan = selectedCell.el.querySelector('.cell-content');
+      const val = contentSpan.textContent;
+      if (val && counts[val] !== undefined) counts[val]++;
+      contentSpan.textContent = '';
+      // Arka planı ck-grey.png yap
+      selectedCell.el.style.backgroundImage = `url(${backgrounds['default']})`;
+      selectedCell.el.style.backgroundColor = '';
+      selectedCell.el.classList.remove('no-five-marked');
+      selectedCell.el.classList.remove('adjacent-marked-once');
+      selectedCell.isEmpty = true;
+      updateCountsUI();
+
+      // Overlayleri kaldır
+      const overlay = selectedCell.el.querySelector('.adjacent-overlay');
+      if (overlay) overlay.remove();
+
+      // Flag'i sadece komşusunda 5 varsa bırak
+      const flag = selectedCell.el.querySelector('.flag-indicator');
+      if (flag) {
+        // Komşularında 5 var mı kontrol et
+        const idx = selectedCell.index;
+        const adjIndices = getAdjacentIndices(idx);
+        let hasFiveNeighbor = false;
+        for (const nIdx of adjIndices) {
+          const cell = cells[nIdx];
+          const value = cell.querySelector('.cell-content').textContent;
+          if (value === '5') {
+            hasFiveNeighbor = true;
+            break;
+          }
+        }
+        if (!hasFiveNeighbor) flag.remove();
+      }
+
+      // Aksiyon butonlarını gizle
+      const actions = selectedCell.el.querySelector('.cell-actions');
+      if (actions) actions.style.display = 'none';
+    }
+
+    function resetAll() {
+      for (let i = 0; i < cells.length; i++) {
+        const contentSpan = cells[i].querySelector('.cell-content');
+        contentSpan.textContent = '';
+        cells[i].style.backgroundImage = `url(${backgrounds['default']})`;
+        cells[i].style.backgroundColor = '';
+        cells[i].classList.remove('selected');
+        cells[i].classList.remove('king-animation');
+        cells[i].classList.remove('no-five-marked');
+        cells[i].classList.remove('adjacent-marked-once');
+        removeAdjacentOverlay(i);
+        // Aksiyon butonlarını gizle
+        const actions = cells[i].querySelector('.cell-actions');
+        if (actions) actions.style.display = 'none';
+        // Flagleri temizle
+        const flag = cells[i].querySelector('.flag-indicator');
+        if (flag) flag.remove();
+      }
+      Object.assign(counts, { '1': 7, '2': 4, '3': 5, '4': 5, '5': 3, 'K': 1 });
+      selectedCell.el = null;
+      selectedCell.index = -1;
+      selectedCell.isEmpty = true;
+      updateCountsUI();
+      updateQuickSelectVisual();
+      // Undo/redo stacklerini de sıfırla
+      undoStack = [];
+      redoStack = [];
+    }
+
+    function getAdjacentIndices(index) {
+      const x = index % 5;
+      const y = Math.floor(index / 5);
+      const offsets = [ 
+        [-1, -1], [0, -1], [1, -1],
+        [-1, 0],          [1, 0],
+        [-1, 1], [0, 1], [1, 1]
+      ];
+      const adjacent = [];
+      
+      for (const [dx, dy] of offsets) {
+        const nx = x + dx, ny = y + dy;
+        if (nx >= 0 && nx < 5 && ny >= 0 && ny < 5) {
+          adjacent.push(ny * 5 + nx);
+        }
+      }
+      
+      return adjacent;
+    }
+
+function markAdjacents(hasFive) {
+  if (!selectedCell.el || selectedCell.isEmpty) return;
+  // Bu hücrede bir kez aksiyon yapıldı olarak işaretle
+  selectedCell.el.classList.add('adjacent-marked-once');
+  const idx = selectedCell.index;
+  const adjIndices = getAdjacentIndices(idx);
+  let markedCount = 0;
+  for (const nIdx of adjIndices) {
+    const targetCell = cells[nIdx];
+    if (targetCell.querySelector('.cell-content').textContent !== '') continue;
+    if (hasFive && adjacentStatus[nIdx] === false) continue;
+    // Eğer hücrede no-five-marked varsa overlay ekleme
+    if (targetCell.classList.contains('no-five-marked')) continue;
+    removeAdjacentOverlay(nIdx);
+    if (!(hasFive && counts['5'] === 0)) {
+      const overlay = document.createElement('div');
+      overlay.className = 'adjacent-overlay ' + (hasFive ? 'adjacent-yes' : 'adjacent-no');
+      targetCell.appendChild(overlay);
+    }
+    adjacentStatus[nIdx] = hasFive;
+    markedCount++;
+
+    // 5 Yok işaretleniyorsa, flag varsa ve artık hiç 5 komşusu yoksa flag'i kaldır
+    if (!hasFive) {
+      const flag = targetCell.querySelector('.flag-indicator');
+      if (flag) {
+        const neighborAdj = getAdjacentIndices(nIdx);
+        let hasAnyFive = false;
+        for (const nnIdx of neighborAdj) {
+          const neighborCell = cells[nnIdx];
+          const neighborValue = neighborCell.querySelector('.cell-content').textContent;
+          if (neighborValue === '5') {
+            hasAnyFive = true;
+            break;
+          }
+        }
+        if (!hasAnyFive) flag.remove();
+      }
+    }
+  }
+
+  // Aksiyon butonlarını gizle
+  const actions = selectedCell.el.querySelector('.cell-actions');
+  if (actions) actions.style.display = 'none';
+
+  selectedCell.el.classList.remove('selected');
+  selectedCell.el = null;
+  selectedCell.index = -1;
+  selectedCell.isEmpty = true;
+  hasFiveBtn.disabled = true;
+  noFiveBtn.disabled = true;
+}
+
+//tüm komşuların "5 Yok" olup olmadığını kontrol edecek
+function allAdjacentsMarkedAsNoFive(index) {
+  const adjIndices = getAdjacentIndices(index);
+  for (const nIdx of adjIndices) {
+    const cell = cells[nIdx];
+    if (cell.querySelector('.cell-content').textContent === '' && 
+        adjacentStatus[nIdx] !== false) {
+      return false;
+    }
+  }
+  return adjIndices.length > 0; // Eğer hiç komşu yoksa da false döner
+}
+
+    function toggleQuickSelect() {
+      quickSelectMode = !quickSelectMode;
+      localStorage.setItem('quickSelectMode', quickSelectMode);
+      updateToggleButtons();
+      updateQuickSelectVisual();
+      
+      // Eğer hızlı seçim kapatılıyorsa, açık olan aksiyon butonlarını kapat
+      if (!quickSelectMode && selectedCell.el) {
+        const actions = selectedCell.el.querySelector('.cell-actions');
+        if (actions) actions.style.display = 'none';
+      }
+    }
+
+    function showHelp() {
+      const modal = document.getElementById('helpModal');
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function hideHelp() {
+      const modal = document.getElementById('helpModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Modal dışına tıklanınca kapat
+    document.getElementById('helpModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        hideHelp();
+      }
+    });
+
+document.addEventListener('keydown', (e) => {
+  if (!selectedCell.el) return;
+  if (selectedCell.isEmpty && ['1','2','3','4','5','K','k'].includes(e.key)) {
+    const key = e.key.toUpperCase();
+    applyValue(key);
+  } else if (e.key === 'Delete') {
+    clearSelected();
+  } else if (e.key === 'Escape') {
+    hideHelp();
+    if (selectedCell.el) {
+      const actions = selectedCell.el.querySelector('.cell-actions');
+      if (actions) actions.style.display = 'none';
+    }
+  }
+});
+
+    // Sayfa yüklendiğinde grid'i oluştur ve ayarları yükle
+    window.addEventListener('DOMContentLoaded', () => {
+      createGrid();
+      updateCountsUI();
+      loadSettings();
+    });
+
+    function zoomGrid(dir) {
+      const mainContainer = document.querySelector('.main-container');
+      gridZoom += dir * 0.1;
+      if (gridZoom < 0.7) gridZoom = 0.7;
+      if (gridZoom > 1.5) gridZoom = 1.5;
+      mainContainer.style.transform = `scale(${gridZoom})`;
+      mainContainer.style.transition = 'transform 0.2s';
+    }
+
+    // Undo/Redo için state stack'leri
+    let undoStack = [];
+    let redoStack = [];
+
+    function getCurrentState() {
+      // Her hücre için value, flag, overlay, king-animation, selected, no-five-marked durumu da dahil
+      return {
+        grid: cells.map(cell => {
+          const value = cell.querySelector('.cell-content').textContent;
+          const hasFlag = !!cell.querySelector('.flag-indicator');
+          const overlay = cell.querySelector('.adjacent-overlay');
+          const overlayType = overlay ? (overlay.classList.contains('adjacent-yes') ? 'yes' : (overlay.classList.contains('adjacent-no') ? 'no' : '')) : '';
+          const isKing = cell.classList.contains('king-animation');
+          const isSelected = cell.classList.contains('selected');
+          const isNoFiveMarked = cell.classList.contains('no-five-marked');
+          return { value, hasFlag, overlayType, isKing, isSelected, isNoFiveMarked };
+        }),
+        counts: {...counts}
+      };
+    }
+
+    function setState(state) {
+      // Grid ve counts'ı verilen state'e döndür, tüm görsel işaretleri de uygula
+      state.grid.forEach((cellState, i) => {
+        const cell = cells[i];
+        const contentSpan = cell.querySelector('.cell-content');
+        contentSpan.textContent = cellState.value;
+        cell.style.backgroundImage = `url(${backgrounds[cellState.value] || backgrounds['default']})`;
+        // no-five-marked durumu uygula
+        if (cellState.isNoFiveMarked) {
+          cell.classList.add('no-five-marked');
+          cell.style.backgroundImage = 'none';
+          cell.style.backgroundColor = '#95c97d';
+        } else {
+          cell.classList.remove('no-five-marked');
+          cell.style.backgroundColor = '';
+        }
+        // Flag
+        const oldFlag = cell.querySelector('.flag-indicator');
+        if (oldFlag) oldFlag.remove();
+        if (cellState.hasFlag) {
+          const flag = document.createElement('span');
+          flag.className = 'flag-indicator';
+          flag.innerHTML = '🚩';
+          flag.style.position = 'absolute';
+          flag.style.bottom = '2px';
+          flag.style.right = '2px';
+          cell.appendChild(flag);
+        }
+        // Overlay
+        const oldOverlay = cell.querySelector('.adjacent-overlay');
+        if (oldOverlay) oldOverlay.remove();
+        if (cellState.overlayType === 'yes' || cellState.overlayType === 'no') {
+          // no-five-marked ise overlay ekleme
+          if (!cellState.isNoFiveMarked) {
+            const overlay = document.createElement('div');
+            overlay.className = 'adjacent-overlay ' + (cellState.overlayType === 'yes' ? 'adjacent-yes' : 'adjacent-no');
+            cell.appendChild(overlay);
+          }
+        }
+        // adjacentStatus'u da güncelle
+        if (cellState.overlayType === 'yes') adjacentStatus[i] = true;
+        else if (cellState.overlayType === 'no') adjacentStatus[i] = false;
+        else adjacentStatus[i] = null;
+        // King animation
+        if (cellState.isKing) cell.classList.add('king-animation');
+        else cell.classList.remove('king-animation');
+        // Selected
+        if (cellState.isSelected) cell.classList.add('selected');
+        else cell.classList.remove('selected');
+      });
+      Object.keys(counts).forEach(k => counts[k] = state.counts[k]);
+      updateCountsUI();
+      // Seçili hücreyi güncelle
+      let foundSelected = false;
+      state.grid.forEach((cellState, i) => {
+        if (cellState.isSelected) {
+          selectedCell.el = cells[i];
+          selectedCell.index = i;
+          selectedCell.isEmpty = (cellState.value === '');
+          foundSelected = true;
+        }
+      });
+      if (!foundSelected) {
+        selectedCell.el = null;
+        selectedCell.index = -1;
+        selectedCell.isEmpty = true;
+      }
+      // 5'ler yerleştirildiyse yeşil hücreleri güncelle
+      checkAllFivesPlaced();
+      // Tüm hücrelerdeki cell-actions'ı gizle
+      for (let i = 0; i < cells.length; i++) {
+        const actions = cells[i].querySelector('.cell-actions');
+        if (actions) actions.style.display = 'none';
+      }
+    }
+
+    function pushUndo() {
+      undoStack.push(getCurrentState());
+      if (undoStack.length > 100) undoStack.shift(); // Maks 100 adım
+      redoStack = [];
+    }
+
+    function undoMove() {
+      if (undoStack.length === 0) return;
+      redoStack.push(getCurrentState());
+      const prev = undoStack.pop();
+      setState(prev);
+    }
+
+    function redoMove() {
+      if (redoStack.length === 0) return;
+      undoStack.push(getCurrentState());
+      const next = redoStack.pop();
+      setState(next);
+    }
+
+    // Her hamlede pushUndo() çağır
+    // applyValue, clearSelected, resetAll fonksiyonlarının başına ekle
+    const _applyValue = applyValue;
+    applyValue = function(...args) { pushUndo(); _applyValue.apply(this, args); checkAllFivesPlaced(); };
+    const _clearSelected = clearSelected;
+    clearSelected = function(...args) { pushUndo(); _clearSelected.apply(this, args); checkAllFivesPlaced(); };
+    const _resetAll = resetAll;
+    resetAll = function(...args) { pushUndo(); _resetAll.apply(this, args); checkAllFivesPlaced(); };
+
+    // 3 tane 5 yerleştirildiyse, tüm boş hücreleri #95c97d yap, overlay ve flagleri kaldır
+    function checkAllFivesPlaced() {
+      if (counts['5'] === 0) {
+        for (let i = 0; i < cells.length; i++) {
+          const cell = cells[i];
+          const content = cell.querySelector('.cell-content').textContent;
+          if (content === '') {
+            // Overlayleri kaldır
+            const overlay = cell.querySelector('.adjacent-overlay');
+            if (overlay) overlay.remove();
+            // Eğer hücrede no-five-marked yoksa uygula
+            if (!cell.classList.contains('no-five-marked')) {
+              cell.style.backgroundImage = 'none';
+              cell.style.backgroundColor = '#95c97d';
+            }
+          }
+          // Hücre üstü aksiyon butonlarını gizle
+          const actions = cell.querySelector('.cell-actions');
+          if (actions) actions.style.display = 'none';
+        }
+        // Ana paneldeki 5 Var / 5 Yok butonlarını devre dışı bırak
+        hasFiveBtn.disabled = true;
+        noFiveBtn.disabled = true;
+      } else {
+        // 5 kartı tekrar varsa, boş hücreleri eski haline döndür
+        for (let i = 0; i < cells.length; i++) {
+          const cell = cells[i];
+          const content = cell.querySelector('.cell-content').textContent;
+          if (content === '') {
+            if (!cell.classList.contains('no-five-marked')) {
+              cell.style.backgroundImage = `url(${backgrounds['default']})`;
+              cell.style.backgroundColor = '#181818';
+            }
+          }
+        }
+        // Ana paneldeki 5 Var / 5 Yok butonlarını tekrar aktif et
+        hasFiveBtn.disabled = false;
+        noFiveBtn.disabled = false;
+      }
+    }
+
+function markNoFiveMain() {
+  pushUndo();
+  if (!selectedCell.el) return;
+  // Eğer hücrede değer varsa (1,2,3,4,5,K) işlem yapma
+  const val = selectedCell.el.querySelector('.cell-content').textContent.trim();
+  if (["1","2","3","4","5","K"].includes(val)) return;
+  // Overlay varsa kaldır
+  const overlay = selectedCell.el.querySelector('.adjacent-overlay');
+  if (overlay) overlay.remove();
+  selectedCell.el.classList.add('no-five-marked');
+  selectedCell.el.style.backgroundImage = 'none';
+  selectedCell.el.style.backgroundColor = '#95c97d';
+  // Komşularında 5 varsa flag ekle
+  const idx = selectedCell.index;
+  const adjIndices = getAdjacentIndices(idx);
+  let hasFiveNeighbor = false;
+  for (const nIdx of adjIndices) {
+    const cell = cells[nIdx];
+    const value = cell.querySelector('.cell-content').textContent;
+    if (value === '5') {
+      hasFiveNeighbor = true;
+      break;
+    }
+  }
+  if (hasFiveNeighbor && !selectedCell.el.querySelector('.flag-indicator')) {
+    const flag = document.createElement('span');
+    flag.className = 'flag-indicator';
+    flag.innerHTML = '🚩';
+    flag.style.position = 'absolute';
+    flag.style.bottom = '2px';
+    flag.style.right = '2px';
+    selectedCell.el.appendChild(flag);
+  }
+  selectedCell.el.classList.remove('selected');
+  selectedCell.el = null;
+  selectedCell.index = -1;
+  selectedCell.isEmpty = true;
+  hasFiveBtn.disabled = true;
+  noFiveBtn.disabled = true;
+}
+
+function updateAllFlags() {
+  for (let i = 0; i < cells.length; i++) {
+    const cell = cells[i];
+    const flag = cell.querySelector('.flag-indicator');
+    if (flag) {
+      const adj = getAdjacentIndices(i);
+      let hasFive = false;
+      for (const nIdx of adj) {
+        const neighborCell = cells[nIdx];
+        const value = neighborCell.querySelector('.cell-content').textContent;
+        if (value === '5') {
+          hasFive = true;
+          break;
+        }
+      }
+      if (!hasFive) flag.remove();
+    }
+  }
+}
+
+// applyValue fonksiyonunda 5 siliniyorsa veya 5 Yok işaretleniyorsa updateAllFlags çağır
+function applyValue(value, index = selectedCell.index) {
+  if (index === undefined || index < 0 || index >= 25) return;
+  if (!cells[index]) return;
+
+  const cell = cells[index];
+  const contentSpan = cell.querySelector('.cell-content');
+  const current = contentSpan.textContent;
+  const isRemovingFive = (current === '5' && value === '');
+
+  if (contentSpan.textContent !== '' && value !== '') return;
+  if (counts[value] <= 0) return;
+
+  if (current && counts[current] !== undefined) counts[current]++;
+
+  contentSpan.textContent = value;
+  cell.style.backgroundImage = `url(${backgrounds[value] || backgrounds['default']})`;
+  cell.style.backgroundColor = '';
+  if (value !== '') counts[value]--;
+
+  if (index === selectedCell.index) {
+    selectedCell.isEmpty = value === '';
+  }
+
+  removeAdjacentOverlay(index);
+
+  if (value === 'K') {
+    cell.classList.add('king-animation');
+    setTimeout(() => {
+      cell.classList.remove('king-animation');
+    }, 1000);
+  }
+
+  if (value === '5') {
+    const adjIndices = getAdjacentIndices(index);
+    for (const nIdx of adjIndices) {
+      const targetCell = cells[nIdx];
+      // Eğer zaten flag yoksa ve hücrede no-five-marked yoksa ekle
+      if (!targetCell.querySelector('.flag-indicator') && !targetCell.classList.contains('no-five-marked')) {
+        const flag = document.createElement('span');
+        flag.className = 'flag-indicator';
+        flag.innerHTML = '🚩';
+        flag.style.position = 'absolute';
+        flag.style.bottom = '2px';
+        flag.style.right = '2px';
+        targetCell.appendChild(flag);
+      }
+      // Eğer hücre no-five-marked ise ve flag yoksa yine ekle
+      if (targetCell.classList.contains('no-five-marked') && !targetCell.querySelector('.flag-indicator')) {
+        const flag = document.createElement('span');
+        flag.className = 'flag-indicator';
+        flag.innerHTML = '🚩';
+        flag.style.position = 'absolute';
+        flag.style.bottom = '2px';
+        flag.style.right = '2px';
+        targetCell.appendChild(flag);
+      }
+    }
+  }
+
+  // 5 siliniyorsa flagları güncelle
+  if (isRemovingFive) {
+    updateAllFlags();
+  }
+
+  updateCountsUI();
+
+  if (quickSelectMode && selectedCell.el && !selectedCell.isEmpty && !allAdjacentsMarkedAsNoFive(index) && counts['5'] > 0) {
+    const actions = selectedCell.el.querySelector('.cell-actions');
+    if (actions) actions.style.display = 'flex';
+  }
+}
+
+// markAdjacents fonksiyonunda 5 Yok işaretleniyorsa flagları güncelle
+function markAdjacents(hasFive) {
+  if (!selectedCell.el || selectedCell.isEmpty) return;
+  selectedCell.el.classList.add('adjacent-marked-once');
+  const idx = selectedCell.index;
+  const adjIndices = getAdjacentIndices(idx);
+  let markedCount = 0;
+  for (const nIdx of adjIndices) {
+    const targetCell = cells[nIdx];
+    if (targetCell.querySelector('.cell-content').textContent !== '') continue;
+    if (hasFive && adjacentStatus[nIdx] === false) continue;
+    if (targetCell.classList.contains('no-five-marked')) continue;
+    removeAdjacentOverlay(nIdx);
+    if (!(hasFive && counts['5'] === 0)) {
+      const overlay = document.createElement('div');
+      overlay.className = 'adjacent-overlay ' + (hasFive ? 'adjacent-yes' : 'adjacent-no');
+      targetCell.appendChild(overlay);
+    }
+    adjacentStatus[nIdx] = hasFive;
+    markedCount++;
+  }
+  // Eğer 5 Yok işaretlendiyse flagları güncelle
+  if (!hasFive) updateAllFlags();
+  const actions = selectedCell.el.querySelector('.cell-actions');
+  if (actions) actions.style.display = 'none';
+  selectedCell.el.classList.remove('selected');
+  selectedCell.el = null;
+  selectedCell.index = -1;
+  selectedCell.isEmpty = true;
+  hasFiveBtn.disabled = true;
+  noFiveBtn.disabled = true;
+}
+
+// clearSelected fonksiyonunda da flagları güncelle
+function clearSelected() {
+  if (!selectedCell.el) return;
+  const contentSpan = selectedCell.el.querySelector('.cell-content');
+  const val = contentSpan.textContent;
+  if (val && counts[val] !== undefined) counts[val]++;
+  contentSpan.textContent = '';
+  selectedCell.el.style.backgroundImage = `url(${backgrounds['default']})`;
+  selectedCell.el.style.backgroundColor = '';
+  selectedCell.el.classList.remove('no-five-marked');
+  selectedCell.el.classList.remove('adjacent-marked-once');
+  selectedCell.isEmpty = true;
+  updateCountsUI();
+  const overlay = selectedCell.el.querySelector('.adjacent-overlay');
+  if (overlay) overlay.remove();
+  // Flagları güncelle
+  updateAllFlags();
+  const actions = selectedCell.el.querySelector('.cell-actions');
+  if (actions) actions.style.display = 'none';
+}
+  </script>
+  <!-- 5 Yok (Yeşil Yap) butonuna tippy tooltip ekle -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    tippy('#markNoFiveMainBtn', {
+      content: `<b>5 Yok (Yeşil Yap)</b><br>Seçili hücrede <b>5 olmadığını</b> işaretler ve arka planı <span style='color:#95c97d;font-weight:bold;'>yeşile</span> boyar.`,
+      allowHTML: true,
+      placement: 'bottom',
+      theme: 'light-border',
+      maxWidth: 320,
+      interactive: false,
+      appendTo: document.body
+    });
+  });
+  </script>
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+  tippy('#clearBtn', {
+    content: 'Sil: Seçili hücredeki tüm efektleri ve kartları kaldırır.',
+    placement: 'bottom', theme: 'light-border', appendTo: document.body });
+  tippy('#undoBtn', {
+    content: 'Hamleyi Geri Al: Son yapılan hamleyi geri alır.',
+    placement: 'bottom', theme: 'light-border', appendTo: document.body });
+  tippy('#redoBtn', {
+    content: 'İleri Hamle: Geri alınmış hamleyi yeniden uygular.',
+    placement: 'bottom', theme: 'light-border', appendTo: document.body });
+  tippy('#resetBtn', {
+    content: 'Sıfırla: Tahtadaki tüm verileri temizler.',
+    placement: 'bottom', theme: 'light-border', appendTo: document.body });
+  tippy('#zoomOutBtn', {
+    content: 'Küçült: Tahtayı uzaklaştırarak genel görünümü küçültür.',
+    placement: 'bottom', theme: 'light-border', appendTo: document.body });
+  tippy('#zoomInBtn', {
+    content: 'Büyüt: Tahtayı yakınlaştırarak detayları büyütür.',
+    placement: 'bottom', theme: 'light-border', appendTo: document.body });
+  tippy('#helpBtn', {
+    content: 'Yardım: Kullanım kılavuzunu gösterir.',
+    placement: 'bottom', theme: 'light-border', appendTo: document.body });
+  tippy('#mainOnlineCounter', {
+    content: 'Online Counter: Anlık aktif ziyaretçi sayısını gösterir.',
+    placement: 'bottom', theme: 'light-border', appendTo: document.body });
+});
+</script>
+<script>
+    function updateCountdown(id, endDate) {
+      const now = new Date();
+      const distance = endDate - now;
+      const el = document.getElementById(id);
+      if (distance <= 0) {
+        el.textContent = 'Süre doldu';
+        return;
+      }
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      let str = '';
+      if (days > 0) str += days + 'g ';
+      str += (hours < 10 ? '0' : '') + hours + ':';
+      str += (minutes < 10 ? '0' : '') + minutes + ':';
+      str += (seconds < 10 ? '0' : '') + seconds;
+      el.textContent = str;
+    }
+    // Drop Sonu: 17.06.2025 00:59:59
+    // Etkinlik Sonu: 18.06.2025 00:59:59
+    const dropEnd = new Date('2025-06-17T00:59:59+03:00');
+    const eventEnd = new Date('2025-06-18T00:59:59+03:00');
+    setInterval(() => {
+      updateCountdown('dropCountdown', dropEnd);
+      updateCountdown('eventCountdown', eventEnd);
+    }, 1000);
+    // İlk yüklemede de göster
+    updateCountdown('dropCountdown', dropEnd);
+    updateCountdown('eventCountdown', eventEnd);
+  </script>
+  <script>
+// ... existing code ...
++   // Admin panel modal logic
++   function getQueryParam(name) {
++     return new URLSearchParams(window.location.search).get(name);
++   }
++   if (getQueryParam('admin') === '1') {
++     const adminModal = document.getElementById('adminPanelModal');
++     adminModal.style.display = 'flex';
++     document.body.style.overflow = 'hidden';
++     const btn = document.getElementById('forceLogoutBtn');
++     const input = document.getElementById('adminPasswordInput');
++     const msg = document.getElementById('adminPanelMsg');
++     btn.onclick = async function() {
++       btn.disabled = true;
++       msg.textContent = '';
++       const password = input.value;
++       try {
++         const res = await fetch('/admin/force-logout', {
++           method: 'POST',
++           headers: { 'Content-Type': 'application/json' },
++           body: JSON.stringify({ password })
++         });
++         const data = await res.json();
++         if (data.success) {
++           msg.textContent = 'Tüm kullanıcılar devre dışı bırakıldı!';
++           msg.style.color = '#6ab34f';
++         } else {
++           msg.textContent = data.error || 'Hata oluştu.';
++           msg.style.color = '#e74c3c';
++         }
++       } catch(e) {
++         msg.textContent = 'Sunucuya ulaşılamıyor.';
++         msg.style.color = '#e74c3c';
++       }
++       btn.disabled = false;
++     };
++   }
+// ... existing code ...
+  </script>
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const modal = document.getElementById('forceLogoutModal');
+  if (!modal) return;
+  const keyInput = modal.querySelector('.force-key-input');
+  const toggleBtn = modal.querySelector('.force-key-toggle');
+  const saveCbx = modal.querySelector('.force-key-save-cbx');
+  const loginBtn = modal.querySelector('.force-key-login-btn');
+  const msg = modal.querySelector('.force-key-msg');
+
+  // Prefill from localStorage
+  if (keyInput && localStorage.getItem('forceKeySaved')) {
+    keyInput.value = localStorage.getItem('forceKeySaved');
+    if (saveCbx) saveCbx.checked = true;
+  }
+
+  // Keyi göster/gizle butonu
+  if (keyInput && toggleBtn) {
+    toggleBtn.onclick = function() {
+      if (keyInput.type === 'password') {
+        keyInput.type = 'text';
+        toggleBtn.innerHTML = '<i class="far fa-eye-slash"></i>';
+      } else {
+        keyInput.type = 'password';
+        toggleBtn.innerHTML = '<i class="far fa-eye"></i>';
+      }
+    };
+  }
+
+  // Key kaydetme checkbox mantığı
+  if (keyInput && saveCbx) {
+    saveCbx.addEventListener('change', function() {
+      if (saveCbx.checked && keyInput.value) {
+        localStorage.setItem('forceKeySaved', keyInput.value);
+      } else {
+        localStorage.removeItem('forceKeySaved');
+      }
+    });
+    keyInput.addEventListener('input', function() {
+      if (saveCbx.checked && keyInput.value) {
+        localStorage.setItem('forceKeySaved', keyInput.value);
+      } else {
+        localStorage.removeItem('forceKeySaved');
+      }
+    });
+  }
+
+  // Giriş butonu mantığı
+  if (keyInput && loginBtn && msg) {
+    loginBtn.onclick = async function() {
+      const key = keyInput.value.trim();
+      if (!key) {
+        msg.textContent = 'Lütfen giriş kodunu girin.';
+        msg.style.color = '#e74c3c';
+        return;
+      }
+      loginBtn.disabled = true;
+      msg.textContent = '';
+      try {
+        const res = await fetch('/api/key-login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ key })
+        });
+        const data = await res.json();
+        if (data.success) {
+          modal.classList.remove('active');
+          document.body.style.overflow = '';
+          try { localStorage.removeItem('forceLogout'); } catch(e){}
+          window.removeEventListener('keydown', forceBlocker, true);
+          window.removeEventListener('mousedown', forceBlocker, true);
+          window.removeEventListener('contextmenu', forceBlocker, true);
+          window.removeEventListener('touchstart', forceBlocker, true);
+          setAppDisabled(false);
+          msg.textContent = 'Giriş başarılı!';
+          msg.style.color = '#6ab34f';
+          if (saveCbx && saveCbx.checked) {
+            localStorage.setItem('forceKeySaved', key);
+          } else {
+            localStorage.removeItem('forceKeySaved');
+          }
+        } else {
+          msg.textContent = data.error || 'Kod geçersiz veya kullanımda.';
+          msg.style.color = '#e74c3c';
+          try { localStorage.removeItem('forceKeySaved'); } catch(e){}
+          try { localStorage.removeItem('forceKey'); } catch(e){}
+          try { localStorage.removeItem('forceKeyIp'); } catch(e){}
+        }
+      } catch(e) {
+        msg.textContent = 'Sunucuya ulaşılamıyor.';
+        msg.style.color = '#e74c3c';
+      }
+      loginBtn.disabled = false;
+    };
+    keyInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') loginBtn.click();
+    });
+  }
+
+  // Sayfa açıldığında kaydedilmiş key varsa ve modal açıksa otomatik giriş dene
+  if (keyInput && saveCbx && localStorage.getItem('forceKeySaved')) {
+    if (modal.classList.contains('active') && keyInput.value) {
+      setTimeout(() => {
+        if (loginBtn) loginBtn.click();
+      }, 200);
+    }
+  }
+});
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var keyInput = document.getElementById('forceKeyInput');
+    if (!keyInput) return;
+    keyInput.addEventListener('input', function(e) {
+      let raw = keyInput.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+      raw = raw.slice(0,15); // KRL+12 karakter
+      let formatted = raw;
+      if (raw.length > 3) formatted = raw.slice(0,3) + '-' + raw.slice(3);
+      if (raw.length > 7) formatted = formatted.slice(0,8) + '-' + formatted.slice(8);
+      if (raw.length > 11) formatted = formatted.slice(0,13) + '-' + formatted.slice(13);
+      formatted = formatted.replace(/-+/g, '-');
+      if (formatted.endsWith('-')) formatted = formatted.slice(0, -1);
+      let pos = keyInput.selectionStart;
+      let prevLen = keyInput.value.length;
+      keyInput.value = formatted;
+      let diff = formatted.length - prevLen;
+      keyInput.setSelectionRange(pos + diff, pos + diff);
+    });
+  });
+  </script>
+</body>
+</html>
+
